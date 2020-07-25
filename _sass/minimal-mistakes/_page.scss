@@ -67,6 +67,9 @@
 }
 
 .page__content {
+    
+    background-color: mix((#000, $background-color, 20%);
+    
   h2 {
     padding-bottom: 0.5em;
     border-bottom: 1px solid $border-color;
