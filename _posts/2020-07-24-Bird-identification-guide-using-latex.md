@@ -1,7 +1,7 @@
 ---
 title: Bird identification guide using LaTex
 date: 2020-07-24
-tags: [LaTex, Tikz, web scraping, birding, Rock Creek Park]
+tags: [LaTex, Tikz, Web-scraping, Birding, Rock Creek Park]
 header:
   image: "https://raw.githubusercontent.com/sebajara/birds/master/RockCreekPark/allaboutbirds/allaboutbirds_booklet-18.png"
 excerpt: "Scraping bird identification info from Allaboutbirds and Audubon and turn them into an identification guide using LaTex"
@@ -18,7 +18,7 @@ I made a visual identification booklet, and a bird sighting
 checklist. You can check the full code
 at [sebajara/birds](https://github.com/sebajara/birds).
 
-## Rock Creek Park Identification helper
+## Identification helper
 
 One thing I constantly have troubles is having a quick reference to help
 me identify birds. Some of the current phone apps are very good, but for
@@ -47,7 +47,7 @@ I hope not to be violating any copy-write issues by sharing the
 generated pdf. In case I do, please let me know and I will remove the
 final product.
 
-## Rock Creek Park bird checklist
+## Bird checklist
 
 The [Rock Creek Park](https://www.nps.gov/rocr/) gives a very useful
 [bird
