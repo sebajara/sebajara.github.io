@@ -7,8 +7,8 @@ header:
 excerpt: "Scraping bird identification info from Allaboutbirds and Audubon and turn them into an identification guide using LaTex"
 mathjax: "true"
 toc: true
-toc_label: "Jump to"
-toc_icon: "cog"
+toc_label: "Jump to section:"
+toc_icon: "folder-open"
 ---
 
 I enjoy taking walks doing bird-watching. Specially in DC there are many
