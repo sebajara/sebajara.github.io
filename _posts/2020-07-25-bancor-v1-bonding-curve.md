@@ -2,7 +2,6 @@
 title: Bancor V1 bonding curve
 date: 2020-07-25
 tags: [Economics, Bancor, Token Bonding Curve, Fractional Reserve]
-header: image: ""
 excerpt: "POST IN THE MAKING... Trading of assets can suffer from liquidity problems. Bancor proposed a protocol for ensuring liquidity by construction, using an token bonding curve and a fractional-reserve. This is being used to set the price of local community currencies. Here I overview the mathematical argument behind the V1 protocol."
 mathjax: "true"
 toc: true
@@ -87,6 +86,7 @@ are, the higher the price, the less there are the smaller the price. One
 intuitive way to represent this, is to define price partial derivative of the
 reserve with respec to the total supply of token $$s_i$$
 
+<!--
 $$p_i = \frac{\partial r}{\partial s_i}, p_i \ge 0 \forall r, s_i $$
 
 where by the index $$ _i$$ we mean some kind of token. We are imagining
@@ -120,8 +120,11 @@ meaning that
 
 $$p_i = c s_i^{\frac{1}{a_i}-1} = \left\frac{s_i}{s_i^0} \right^{\frac{1}{a_i}-1}$$
 
+-->
+
 By the way, Wolfram Alpha can
 [solve](https://www.wolframalpha.com/input/?i=p+%3D+a*%28p%27x%2Bp%29)
 the equation for you.
+
 
 ### Interactive bancor bonding curve graphic
