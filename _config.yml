@@ -85,7 +85,7 @@ analytics:
 # Site Author
 author:
   name             : "Sebastian Jaramillo-Riveri"
-  avatar           : "/images/bio-pic-2.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : # "/images/bio-pic-2.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Data scientist, biologist, home cook."
   location         : "Washington DC"
   email            : 
