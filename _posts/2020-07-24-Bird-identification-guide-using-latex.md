@@ -8,7 +8,7 @@ excerpt: "Scraping bird identification info from Allaboutbirds and Audubon and t
 mathjax: "true"
 toc: true
 toc_label: "Jump to section:"
-toc_icon: "folder-open"
+toc_icon: "fast-forward"
 ---
 
 I enjoy taking walks doing bird-watching. Specially in DC there are many
