@@ -7,7 +7,7 @@ header:
 excerpt: "Scraping bird identification info from Allaboutbirds and Audubon and turn them into an identification guide using LaTex"
 mathjax: "true"
 toc: true
-toc_label: "Jump to section:"
+toc_label: "Jump to:"
 toc_icon: "fast-forward"
 ---
 

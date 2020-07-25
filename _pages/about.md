@@ -2,8 +2,9 @@
 title: "About"
 permalink: /about/
 toc: true
-toc_label: "Sections"
-toc_icon: "cog"
+toc: true
+toc_label: "Jump to:"
+toc_icon: "fast-forward"
 ---
 
 I have 10 years of experience modeling data in the context of molecular
