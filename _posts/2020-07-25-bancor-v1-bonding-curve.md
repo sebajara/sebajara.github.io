@@ -27,8 +27,8 @@ $$p(...)$$ is a function that gives the value of one unit of token in
 some given currency units. In such a way, if we want to buy or sell a
 given amount of token we integrate $$p(...)$$ to calculate the
 price. For example, say we want to buy $$x$$ amounts of token and the
-current supply is $$s_0$$, then the price we pay is
-$$\int_{s_0}^{s_0+x}p(...)ds$$. The interesting question is what the
+current supply is $$x_0$$, then the price we pay is
+$$\int_{x_0}^{x_0+x}p(...)ds$$. The interesting question is what the
 price function should look like? and with what consequences?
 
 ### The liquidity problem
@@ -39,17 +39,20 @@ bonding curve (e.g. see the post on the
 but an obvious problem is "token
 liquidity". Wikipedia
 defines [market liquidity](https://en.wikipedia.org/wiki/Market_liquidity) as
+
 > a market's feature whereby an individual or firm can quickly purchase
 > or sell an asset without causing a drastic change in the asset's
 > price.
+
 With money this is not regularly a problem ("*cash is the most liquid
 asset*"). But it can become one if we trade using some arbitrary
 [asset](https://en.wikipedia.org/wiki/Asset). In regular markets,
-liquidity is facilitated by [Market
-Makers](https://en.wikipedia.org/wiki/Market_maker), which
+liquidity is facilitated by [Market Makers](https://en.wikipedia.org/wiki/Market_maker), which
+
 > seek to profit by charging for the immediacy of execution: either
 > implicitly by earning a bid/ask spread or explicitly by charging
 > execution commissions
+
 Illiquid assets can lead to economic crisis, as it happened with the
 [Subprime mortgage
 crisis](https://en.wikipedia.org/wiki/Subprime_mortgage_crisis). Given
@@ -66,8 +69,7 @@ We will only focus here on the mathematical reasoning of the proposed
 protocol V1 as explained by [Meni Rosenfeld](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view). 
 There is a similar post on this topic by
 [relevant.community from 2018](https://blog.relevant.community/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17).
-And more generally you can find lots of information in the [Bancoro
-network blog](https://blog.bancor.network/).
+And more generally you can find lots of information in the [Bancor network blog](https://blog.bancor.network/).
 
 ### Fractional-reserve banking
 
@@ -86,8 +88,10 @@ are, the higher the price, the less there are the smaller the price. One
 intuitive way to represent this, is to define price partial derivative of the
 reserve with respec to the total supply of token $$s_i$$
 
+$$p_i = \frac{\partial r}{\partial s_i}$$
+
 <!--
-$$p_i = \frac{\partial r}{\partial s_i}, p_i \ge 0 \forall r, s_i $$
+
 
 where by the index $$ _i$$ we mean some kind of token. We are imagining
 that we can use the same reserve to trade multiple kinds of tokens.
