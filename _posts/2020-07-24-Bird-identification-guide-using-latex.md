@@ -9,7 +9,6 @@ mathjax: "true"
 toc: true
 toc_label: "Jump to section:"
 toc_icon: "folder-open"
-comments: true
 ---
 
 I enjoy taking walks doing bird-watching. Specially in DC there are many
