@@ -33,10 +33,10 @@ price function should look like? and with what consequences?
 
 ### The liquidity problem
 
-Apparently there are many considerations that can go into deciding a
+There are many considerations that can go into deciding a
 bonding curve (e.g. see the post on the
-[molecule-blog](https://medium.com/molecule-blog/token-bonding-curve-design-parameters-95d365cbec4f)),
-but an obvious problem is "token
+[molecule-blog](https://medium.com/molecule-blog/token-bonding-curve-design-parameters-95d365cbec4f)).
+But an obvious problem is "token
 liquidity". Wikipedia
 defines [market liquidity](https://en.wikipedia.org/wiki/Market_liquidity) as
 
@@ -86,12 +86,9 @@ Let's call $$r$$ the value hold in a reserve. We wish that the price of
 a token tracks down the total supply of tokens: the more tokens there
 are, the higher the price, the less there are the smaller the price. One
 intuitive way to represent this, is to define price partial derivative of the
-reserve with respec to the total supply of token $$s_i$$
+reserve with respect to the total supply of token $$s_i$$
 
 $$p_i = \frac{\partial r}{\partial s_i}$$
-
-<!--
-
 
 where by the index $$ _i$$ we mean some kind of token. We are imagining
 that we can use the same reserve to trade multiple kinds of tokens.
@@ -104,9 +101,16 @@ later. Then, using the chain rule, the price of $$t_i$$ is
 $$p_i = f_i^{\prime}(p_i s_i)\left(\frac{\partial p_i }{\partial s_i}s_i + p_i\right)$$
 
 and finally, the value added or removed to the reserve upong a certain
-change in token supply is
+change in token supply $$x$$ is
 
-$$\Delta r = \int_{x_1}^{x_2} p_i(s_i) ds_i $$
+$$\Delta r(x) = \int_{x_0+x}^{x_0} p_i(s_i) ds_i $$
+
+<!--
+
+
+
+
+
 
 So we have left is to pick a given $$f(...)$$. 
 
