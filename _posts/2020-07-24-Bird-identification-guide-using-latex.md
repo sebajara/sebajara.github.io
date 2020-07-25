@@ -3,7 +3,7 @@ title: Bird identification guide using LaTex
 date: 2020-07-24
 tags: [LaTex, Tikz, web scraping, birding, Rock Creek Park]
 header:
-  image: "https://raw.githubusercontent.com/sebajara/birds/master/RockCreekPark/allaboutbirds/allaboutbirds_booklet-15.png"
+  image: "https://raw.githubusercontent.com/sebajara/birds/master/RockCreekPark/allaboutbirds/allaboutbirds_booklet-18.png"
 excerpt: "Scraping bird identification info from Allaboutbirds and Audubon and turn them into an identification guide using LaTex"
 mathjax: "true"
 toc: true

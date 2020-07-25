@@ -1,6 +1,9 @@
 ---
 title: "About"
 permalink: /about/
+toc: true
+toc_label: "Sections"
+toc_icon: "cog"
 ---
 
 I have 10 years of experience modeling data in the context of molecular
