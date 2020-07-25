@@ -18,6 +18,8 @@ I made a visual identification booklet, and a bird sighting
 checklist. You can check the full code
 at [sebajara/birds](https://github.com/sebajara/birds).
 
+---
+
 ## Identification helper
 
 One thing I constantly have troubles is having a quick reference to help
@@ -46,6 +48,8 @@ and "conservation" diagrams, are taken from the
 I hope not to be violating any copy-write issues by sharing the
 generated pdf. In case I do, please let me know and I will remove the
 final product.
+
+---
 
 ## Bird checklist
 
@@ -97,6 +101,7 @@ am using colors for coding sighting frequency categories
   </tbody>
 </table>
 
+---
 
 <!--
 ### Example of coding in LaTex 
