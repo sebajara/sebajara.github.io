@@ -5,14 +5,14 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "neon" # "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Your Name"
+title                    : "Sebastian Jaramillo-Riveri"
 title_separator          : "-"
-name                     : "Your Name"
-description              : "Data Science Portfolio"
+name                     : "Sebastian Jaramillo-Riveri"
+description              : "Personal blog and portafolio"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -84,26 +84,26 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Sebastian Jaramillo-Riveri"
   avatar           : "/images/bio-pic-2.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Data Science Portfolio"
-  location         : "Your Location"
-  email            :
-  uri              :
+  bio              : "Data scientist, biologist, home cook."
+  location         : "Washington DC"
+  email            : 
+  uri              : 
   home             : # null (default), "absolute or relative url to link to author home"
-  bitbucket        :
-  codepen          :
-  dribbble         :
+  bitbucket        : 
+  codepen          : 
+  dribbble         : 
   flickr           :
   facebook         :
   foursquare       :
-  github           : "Your Github"
+  github           : sebajara
   gitlab           :
   google_plus      :
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         : "dataoptimal" # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
+  linkedin         : sebastian-jaramillo-riveri-a7ba2615
   pinterest        :
   soundcloud       :
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
