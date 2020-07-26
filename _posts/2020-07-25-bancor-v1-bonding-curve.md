@@ -102,11 +102,11 @@ Using the chain rule the price is
 
 $$p(s) = f^{\prime}(p s)\left(\frac{d p }{d s}s + p\right)$$
 
-where $$f^{\prime}$$ is the derivative of the function with respecto to
+where $$f^{\prime}(...)$$ is the derivative of the function with respecto to
 its argument. So we have left is to pick a given $$f(...)$$.
 
 In the context of fractional-reserve banking, we pick a linear function
-$$f(p s) = a p s$$ In particular $$0 < a \ge 1$$ to
+$$f(p s) = a p s$$ In particular the range $$0 < a \le 1$$ to
 maintain the meaning in "fractional". For example, taking $$a=0.5$$
 means half the total value of the token supply $$p s$$ is in the
 reserve.
@@ -119,7 +119,7 @@ meaning that
 
 $$p(s) = p_0 \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1} $$
 
-where $$s_0$$ and $$s_0$$ represents the initial price and token
+where $$p_0$$ and $$s_0$$ represents the initial price and token
 supply respectively. In practice it can be any pair of values for which
 the mapping is known. Before moving, it should mention that Wolfram
 Alpha can
@@ -129,7 +129,7 @@ the equation for you.
 Note that we can solve this equation individually for any token bonding
 curve $$p$$. So for any combination of token supplies
 
-$$r(s) = a p_0 s \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1}$$
+$$r(s) = a p_0 s_0 \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1}$$
 
 Now the question is. If we wish to change the supply from $$s$$ to
 $$s+\Delta s$$ by buying or selling tokens how much we pay/get in
@@ -141,7 +141,7 @@ $$\Delta r(\Delta s) = \int_{s}^{s+\Delta s} p(z) dz $$
 
 so
 
-$$ \Delta r(\Delta s) = a p_0 s \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
+$$ \Delta r(\Delta s) = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
 
 and then that price difference would be added to the reserve.
 
