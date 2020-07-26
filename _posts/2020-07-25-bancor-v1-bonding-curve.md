@@ -193,10 +193,10 @@ In case we want to sell or buy tokens for a given amount of currency, we
 can invert the previous relation to obtain
 
 $$\begin{array}{rcl}
-	\Delta r & = & a p_0 s_0 \left( \left(1 + \frac{\Delta s}{s_0} \right)^{\frac{1}{a}} - 1 \right) \\
-	\frac{\Delta r}{a p_0 s_0} & = &  \left(1 + \frac{\Delta s}{s_0} \right)^{\frac{1}{a}} - 1 \\
-	\left( \frac{\Delta r}{a p_0 s_0} + 1 \right)^a & = & \frac{\Delta s}{s_0} + 1
-	s_0 \left(\left( \frac{\Delta r}{a p_0 s_0} + 1 \right)^a - 1 \right) & = & \Delta s
+	a p_0 s_0 \left( \left(1 + \frac{\Delta s}{s_0} \right)^{\frac{1}{a}} - 1 \right) & = & \Delta r \\
+	\left(1 + \frac{\Delta s}{s_0} \right)^{\frac{1}{a}} - 1 & = & \frac{\Delta r}{a p_0 s_0}  \\
+	\frac{\Delta s}{s_0} + 1 & = & \left( \frac{\Delta r}{a p_0 s_0} + 1 \right)^a \\
+	\Delta s & = & s_0 \left(\left( \frac{\Delta r}{a p_0 s_0} + 1 \right)^a - 1 \right)
 \end{array}
 $$
 
