@@ -103,52 +103,47 @@ Using the chain rule the price is
 $$p(s) = f^{\prime}(p s)\left(\frac{d p }{d s}s + p\right)$$
 
 where $$f^{\prime}(...)$$ is the derivative of the function with respecto to
-its argument. So we have left is to pick a given $$f(...)$$.
+its argument. 
 
-In the context of fractional-reserve banking, we pick a linear function
-$$f(p s) = a p s$$ In particular the range $$0 < a \le 1$$ to
-maintain the meaning in "fractional". For example, taking $$a=0.5$$
-means half the total value of the token supply $$p s$$ is in the
-reserve.
+So we have left is to pick a given $$f(...)$$. In the context of
+fractional-reserve banking, we pick a linear function $$f(p s) = a p s$$
+In particular the range $$0 < a \le 1$$ to maintain the meaning in
+"fractional". For example, taking $$a=0.5$$ means half the total value
+of the token supply $$p s$$ is in the reserve.
 
-Now, the price is the solution to the equation
+Now, the price is the solution to the equation 
 
 $$p(s) = a\left(\frac{d p }{d s}s + p\right)$$
 
-meaning that
+meaning that ([see link for solving the equation](https://www.wolframalpha.com/input/?i=p+%3D+a*%28p%27x%2Bp%29))
 
 $$p(s) = p_0 \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1} $$
 
-where $$p_0$$ and $$s_0$$ represents the initial price and token
-supply respectively. In practice it can be any pair of values for which
-the mapping is known. Before moving, it should mention that Wolfram
-Alpha can
-[solve](https://www.wolframalpha.com/input/?i=p+%3D+a*%28p%27x%2Bp%29)
-the equation for you.
+where $$p_0$$ and $$s_0$$ represents the initial price and token supply
+respectively. In practice, could have picked any pair of values for
+which the mapping is known.
 
-Note that we can solve this equation individually for any token bonding
-curve $$p$$. So for any combination of token supplies
+Then we can obtain the value of the reserve by replacing $$p$$ on $$aps$$
 
-$$r(s) = a p_0 \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1}s$$
+$$r(s) = f(ps) = aps = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
 
-Now the question is. If we wish to change the supply from $$s$$ to
-$$s+\Delta s$$ by buying or selling tokens how much we pay/get in
-the reserve currency? In other words, the value added or removed to
-the reserve ($$\Delta r$$) upong a certain change in token supply
-$$\Delta s$$ is the integral
+### Buying or selling tokens
 
-$$\Delta r(\Delta s) = \int_{s}^{s+\Delta s} p(z) dz $$
+Say we wish to change the supply from $$s$$ to $$s+\Delta s$$ by buying
+or selling tokens. How much we pay/get in the reserve currency?
 
-so
+Let's call the value added or removed to the reserve $$\Delta r =
+r(s+\Delta s)-r(s)$$. Then
 
-$$ \Delta r(\Delta s) = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
-
-and then that price difference would be added to the reserve.
+$$ \Delta r = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
 
 In case we want to sell or buy tokens for a given amount of currency, we
 can invert the relation to obtain
 
 $$ \Delta s =  s \left( \left( 1 + \frac{\Delta r}{a p_0 s_0}\right)^{a}- 1 \right) $$
+
+Using these two equations we can map reserve currency to amount of
+tokens for any given purchase or sell transaction.
 
 ### Interactive bancor bonding curve graphic
 
