@@ -136,8 +136,11 @@ Let's call the value added or removed to the reserve $$\Delta r$$. Then
 
 $$ \Delta r = \int_{s}^{s+\Delta s} p(z)dz = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
 
+The integration is rather long, see Meni Rosenfeld's
+[document](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view). 
+
 In case we want to sell or buy tokens for a given amount of currency, we
-can invert the relation to obtain
+can invert the previous relation to obtain
 
 $$ \Delta s =  s \left( \left( 1 + \frac{\Delta r}{a p_0 s_0}\right)^{a}- 1 \right) $$
 
