@@ -129,7 +129,7 @@ the equation for you.
 Note that we can solve this equation individually for any token bonding
 curve $$p$$. So for any combination of token supplies
 
-$$r(s) = a p_0 s_0 \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1}$$
+$$r(s) = a p_0 \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1}s$$
 
 Now the question is. If we wish to change the supply from $$s$$ to
 $$s+\Delta s$$ by buying or selling tokens how much we pay/get in
