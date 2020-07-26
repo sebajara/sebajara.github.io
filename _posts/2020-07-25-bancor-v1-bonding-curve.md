@@ -102,30 +102,28 @@ interested, the post by [relevant.community from
 2018](https://blog.relevant.community/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17)
 discuss similar -->
 
-## Mathematical reasoning 
+## Mathematical reasoning of Bancor's V1 
 
 Here for illustration purposes, we will use a single reserve holding a
 single token. Let's imagine we have a reserve in some currency
 (e.g. dollars or ETH) and we use it to store value when someone buys
 tokens, and take value from when someone sells them. We explained
 previously that we demand certain properties:
-
-i. *Monotonic Bonding curve:* The bonding curve should be a monotonic
+* *Monotonic Bonding curve:* The bonding curve should be a monotonic
 function of the total tokens in circulation (supply). The higher the
 supply, the higher the price, and vice-versa. 
-ii. *Fractional reserve*: The relation between the value stored in the
-reserve and the supply should be invariant to changes in
-supply. Basically that if we define the reserve to hold 20% of the
-supply, it should always hold 20%.
-ii. *Cost/Gain as integral of bonding curve*: the gain or cost from
+* *Cost/Gain as integral of bonding curve*: the gain or cost from
 selling or buying tokens should be the integral of the bonding
 curve, and that amount is updated to the reserve. Note tha because the
 curve is monotonic, the amounts are reversible.
-iv. Also, we want that the price for a supply of 0 should be also 0.
+* *Fractional reserve*: The relation between the value stored in the
+reserve and the supply should be invariant to changes in
+supply. Basically that if we define the reserve to hold 20% of the
+supply, it should always hold 20%.
+* Also, we want that the price for a supply of 0 should be also 0.
 
-Note that particularly it is property *i* and *iii* that solves the
-liquidity problem. The rest are more or less particulars of the
-implementation.
+Note that particularly the first and second solve the liquidity
+problem. The rest are more or less particulars of the implementation.
 
 ### Token price as the derivative of the reserve.
 
@@ -136,7 +134,7 @@ $$s$$
 
 $$p(s) = \frac{d r}{d s}$$
 
-For generality, let's encode the second property as saying that the value
+For generality, let's encode the third property as saying that the value
 of the reserve is some function of the total value of the supply
 
 $$r(s) = f(p s)$$
@@ -177,32 +175,28 @@ $$r(s) = f(ps) = aps = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
 ### Buying or selling tokens
 
 Say we wish to change the supply from $$s$$ to $$s+\Delta s$$ by buying
-or selling tokens. How much we pay/get in the reserve currency?
+or selling tokens. How much we pay/get in the units of the reserve
+currency?
 
-Let's call the value added or removed to the reserve $$\Delta r$$.
+Let's call the value added or removed to the reserve $$\Delta
+r$$. Remember the because of the second property we demanded, we need to
+compute the integral of the price
 
-...
+$$ \begin{array}{rcl}
+\Delta r & = & \int_{s}^{s+\Delta s} p(z)dz\\
+\Delta r & = & \int_{s}^{s+\Delta s} p_0 \left( \frac{dz}{s_0} \right)^{\frac{1}{a}-1} dz
+$$
 
-In case we want to sell or buy tokens for a given amount of currency, we
-can invert the previous relation to obtain
+therefore
 
-...
-
-<!--
- Then
-
-$$ \Delta r = \int_{s}^{s+\Delta s} p(z)dz = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
-
-The integration is rather long, see Meni Rosenfeld's
-[document](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view). 
+$$ \Delta r = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) 
 
 In case we want to sell or buy tokens for a given amount of currency, we
 can invert the previous relation to obtain
 
 $$ \Delta s =  s \left( \left( 1 + \frac{\Delta r}{a p_0 s_0}\right)^{a}- 1 \right) $$
--->
 
-Using these two equations we can map reserve currency to amount of
+So using these two equations we can map reserve currency to amount of
 tokens for any given purchase or sell transaction.
 
 ### Interactive bancor bonding curve graphic
