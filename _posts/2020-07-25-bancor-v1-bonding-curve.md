@@ -76,7 +76,7 @@ And more generally you can find lots of information in the [Bancor network blog]
 Before getting into bancor's protocol, we need to introduce
 [Fractional-reserve banking](https://en.wikipedia.org/wiki/Fractional-reserve_banking). TODO
 
-### Token price defined as the partial derivative of the reserve
+### Token price defined as the derivative of the reserve
 
 Let's imagine we have a reserve in some value currency (e.g. dollars or
 ETH) and we use to store value when someone buys tokens, and take value
@@ -106,22 +106,23 @@ where $$f^{\prime}(...)$$ is the derivative of the function with respecto to
 its argument. 
 
 So we have left is to pick a given $$f(...)$$. In the context of
-fractional-reserve banking, we pick a linear function $$f(p s) = a p s$$
-In particular the range $$0 < a \le 1$$ to maintain the meaning in
-"fractional". For example, taking $$a=0.5$$ means half the total value
-of the token supply $$p s$$ is in the reserve.
+fractional-reserve banking, we pick a linear function $$f(p s) = a p s$$.
+In particular the range $$0 < a \le 1$$ is required to maintain the
+meaning in "fractional". For example, taking $$a=0.5$$ means half the
+total value of the token supply $$p s$$ is in the reserve.
 
 Now, the price is the solution to the equation 
 
-$$p(s) = a\left(\frac{d p }{d s}s + p\right)$$
-
-meaning that ([see link for solving the equation](https://www.wolframalpha.com/input/?i=p+%3D+a*%28p%27x%2Bp%29))
-
-$$p(s) = p_0 \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1} $$
+$$
+\begin{array}{rcl}
+p(s) & = & a\left(\frac{d p }{d s}s + p\right)\\
+p(s) & = & p_0 \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1}
+\end{array}$$
+$$$$
 
 where $$p_0$$ and $$s_0$$ represents the initial price and token supply
 respectively. In practice, could have picked any pair of values for
-which the mapping is known.
+which the mapping is known. [see link for solving the equation with wolframalpha](https://www.wolframalpha.com/input/?i=p+%3D+a*%28p%27x%2Bp%29)
 
 Then we can obtain the value of the reserve by replacing $$p$$ on $$aps$$
 
