@@ -179,14 +179,14 @@ where $$p_0$$ and $$s_0$$ represent some pair of price and token supply
 values for which the mapping is known. In practice, these are typically
 the initial values.
 
-Play with the parameter values on this plot. Particularly the reserve
-fraction $$a$$!
-{% include 2020_07_26_bancor_v1_bonding_curve.html %}
-
 Finally, we can obtain the value of the reserve by replacing $$p(s)$$ on
 $$r(s) = aps$$
 
 $$r(s) = f(ps) = aps = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
+
+Play with the parameter values on this figure to get a feeling for the
+bonding curve, specially the reserve fraction $$a$$.
+{% include 2020_07_26_bancor_v1_bonding_curve.html %}
 
 ### Buying or selling tokens
 
