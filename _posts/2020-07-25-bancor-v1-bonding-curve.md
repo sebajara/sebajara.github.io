@@ -124,7 +124,7 @@ $$p_i(s_i) = a_i\left(\frac{\partial p_i }{\partial s_i}s_i + p_i\right)$$
 
 meaning that
 
-$$p_i(s_i) = p_i^0 \left \frac{s_i}{s_i^0} \right^{\frac{1}{a_i}-1}$$
+$$p_i(s_i) = p_i^0 \left \frac{s_i}{s_i^0} \right$$
 
 where $$s_i^0$$ and $$s_i^0$$ represents the initial price and token
 supply respectively. In practice it can be any pair of values for which
@@ -139,6 +139,7 @@ curve $$p_i$$. So for any combination of token supplies
 $$r(s_1,...) = \sum_i a_i p_i^0 \left \frac{s_i}{s_i^0} \right^{\frac{1}{a_i}-1} s_i$$
 
 <!--
+^{\frac{1}{a_i}-1}
 Then, if we exchange the supply from $$s_i$$ in $$x$$ by selling or
 buying, what we pay or gain in the reserve currency is the
 aforementioned integral
