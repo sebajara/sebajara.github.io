@@ -2,7 +2,7 @@
 title: Bancor V1 bonding curve
 date: 2020-07-25
 tags: [Economics, Bancor, Token Bonding Curve, Fractional Reserve]
-excerpt: "POST IN THE MAKING... Trading of assets can suffer from liquidity problems. Bancor proposed a protocol for ensuring liquidity by construction, using an token bonding curve and a fractional-reserve. This is being used to set the price of local community currencies. Here I overview the mathematical argument behind the V1 protocol."
+excerpt: "Explanation of the reasoning behind bancor's protocol V1 + an interactive bonding curve application"
 mathjax: "true"
 toc: true
 toc_label: "Jump to:"
@@ -56,8 +56,8 @@ liquidity is facilitated by [Market Makers](https://en.wikipedia.org/wiki/Market
 Illiquid assets can lead to economic crisis, as it happened with the
 [Subprime mortgage
 crisis](https://en.wikipedia.org/wiki/Subprime_mortgage_crisis). Given
-my little knowledge in these topics, the more I learn I find more and
-more surprising that the economic system remains somewhat stable at all.
+my little knowledge in these topics, the more I learn, the more
+surprising the stability of economic systems appears to me.
 
 What about the liquidity of tokens? TODO
 
@@ -81,7 +81,7 @@ Before getting into bancor's protocol, we need to introduce
 Let's imagine we have a reserve in some value currency (e.g. dollars or
 ETH) and we use to store value when someone buys tokens, and take value
 from when someone sells them. Here we will use a single reserve holding
-multiple tokens. See Meni Rosenfeld's
+a single token. See Meni Rosenfeld's
 [document](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view)
 to see how it would apply for a single token hold in multiple reserves. 
 
@@ -89,45 +89,37 @@ Let's call $$r$$ the value hold in a reserve. We wish that the price of
 a token tracks down the total supply of tokens: the more tokens there
 are, the higher the price, the less there are the smaller the price. One
 intuitive way to represent this, is to define price partial derivative of the
-reserve with respect to the total supply of token $$s_i$$
+reserve with respect to the total supply of token $$s$$
 
-$$p_i(s_i) = \frac{\partial r}{\partial s_i}$$
+$$p(s) = \frac{d r}{d s}$$
 
-where by the index $$ _i$$ we mean some kind of token. We are imagining
-that we can use the same reserve to trade multiple kinds of tokens.
+For generality, let's say the value of the reserve is some function of
+the total value of the supply
 
-$$r(s_1,...,s_n) = \sum_i f_i(p_i s_i)$$
+$$r(s) = f(p s)$$
 
-The reason for using a function here is that later we could investigate
-what happens to the bonding curve if we change them. Then, using the chain
-rule, the price of $$t_i$$ is
+Using the chain rule the price is
 
-$$p_i(s_i) = f_i^{\prime}(p_i s_i)\left(\frac{\partial p_i }{\partial s_i}s_i + p_i\right)$$
+$$p(s) = f^{\prime}(p s)\left(\frac{d p }{d s}s + p\right)$$
 
-where $$f_i^{\prime}$$ is the derivative of the function with respecto to its argument.
-
-Finally, the value added or removed to the reserve ($$\Delta r$$)
-upong a certain change in token supply $$x$$ is
-
-$$\Delta r(x) = \int_{s_i}^{s_i+x} p_i(z) dz $$
-
-So we have left is to pick a given $$f(...)$$. 
+where $$f^{\prime}$$ is the derivative of the function with respecto to
+its argument. So we have left is to pick a given $$f(...)$$.
 
 In the context of fractional-reserve banking, we pick a linear function
-$$f_i(p_i s_i) = a_i p_i s_i$$ In particular $$0 < a_i \ge 1$$ to
-maintain the meaning in "fractional". For example, taking $$a_i=0.5$$
-means half the total value of the token supply $$p_i s_i$$ is in the
+$$f(p s) = a p s$$ In particular $$0 < a \ge 1$$ to
+maintain the meaning in "fractional". For example, taking $$a=0.5$$
+means half the total value of the token supply $$p s$$ is in the
 reserve.
 
 Now, the price is the solution to the equation
 
-$$p_i(s_i) = a_i\left(\frac{\partial p_i }{\partial s_i}s_i + p_i\right)$$
+$$p(s) = a\left(\frac{d p }{d s}s + p\right)$$
 
 meaning that
 
-$$p_i(s_i) = p_{i0} \left( \frac{s_i}{s_{i0}} \right)^{\frac{1}{a_i}-1} $$
+$$p(s) = p_0 \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1} $$
 
-where $$s_{i0}$$ and $$s_{i0}$$ represents the initial price and token
+where $$s_0$$ and $$s_0$$ represents the initial price and token
 supply respectively. In practice it can be any pair of values for which
 the mapping is known. Before moving, it should mention that Wolfram
 Alpha can
@@ -135,25 +127,32 @@ Alpha can
 the equation for you.
 
 Note that we can solve this equation individually for any token bonding
-curve $$p_i$$. So for any combination of token supplies
+curve $$p$$. So for any combination of token supplies
 
-$$r(s_1,...) = \sum_i a_i p_{i0} s_i \left( \frac{s_i}{s_{i0}} \right)^{\frac{1}{a_i}-1}$$
+$$r(s) = a p_0 s \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1}$$
 
-Now the question is. If we wish to change the supply from $$s_i$$ to
-$$s_i+\Delta t_i$$ by buying or selling tokens __how much we pay/get in
-the reserve currency?__. The answer is the aforementioned integral,
-whose solution is
+Now the question is. If we wish to change the supply from $$s$$ to
+$$s+\Delta s$$ by buying or selling tokens how much we pay/get in
+the reserve currency? In other words, the value added or removed to
+the reserve ($$\Delta r$$) upong a certain change in token supply
+$$\Delta s$$ is the integral
 
-$$ \Delta r = a_i p_{i0} s_i \left( \left( 1 + \frac{\Delta t_i}{s_i}\right)^{\frac{1}{a_i}}- 1 \right) $$
+$$\Delta r(\Delta s) = \int_{s}^{s+\Delta s} p(z) dz $$
+
+so
+
+$$ \Delta r(\Delta s) = a p_0 s \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
 
 and then that price difference would be added to the reserve.
 
-In the reverse case... TODO.
+In case we want to sell or buy tokens for a given amount of currency, we
+can invert the relation to obtain
 
-$$ \Delta t_i =  s_i \left( \left( 1 + \frac{\Delta r}{a_i p_{i0} s_0}\right)^{a_i}- 1 \right) $$
+$$ \Delta s =  s \left( \left( 1 + \frac{\Delta r}{a p_0 s_0}\right)^{a}- 1 \right) $$
 
 ### Interactive bancor bonding curve graphic
 
+<!--
 ## Potential explorations
 
 Here are a few ideas:
@@ -164,4 +163,4 @@ Here are a few ideas:
 * Can we formalize what we expect from the price and reserve/token
   functions in different cases? E.g. volatility, caps, etc. Then see how
   changing their form relates to those criterias?
-  
+ --> 
