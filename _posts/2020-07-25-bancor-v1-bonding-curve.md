@@ -150,7 +150,7 @@ and then that price difference would be added to the reserve.
 
 In the reverse case... TODO.
 
-$$ \Delta t_i =  s_i \left( \left( 1 + \frac{\Delta r}{a_i p_{i0} s_0}\right)^{\frac{1}{a_i}}- 1 \right) $$
+$$ \Delta t_i =  s_i \left( \left( 1 + \frac{\Delta r}{a_i p_{i0} s_0}\right)^{a_i}- 1 \right) $$
 
 ### Interactive bancor bonding curve graphic
 
