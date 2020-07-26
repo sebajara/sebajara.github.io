@@ -17,8 +17,11 @@ TODO. General intro. Motivation. CIC.
 
 What is a [crypto-token](https://www.investopedia.com/terms/c/crypto-token.asp)?
 In simple terms are a kind of cryptocurrency that represents one unit of
-something that can be used.
-
+something that can be used. We will try to deal with the problem of how
+such token should be priced, which given the experience with [bitcoin
+volatility](https://www.investopedia.com/articles/investing/052014/why-bitcoins-value-so-volatile.asp),
+seems like an important issue. Specially if we mean to use tokens as way
+for people to create community currencies.
 
 ### The liquidity problem
 
@@ -90,6 +93,8 @@ some way to store and update the total value of token supply, such that
 for every buy/sell of tokens, the value is added/subtracted to/from the
 reserve.
 
+## Bancor's protocol V1 
+
 Now the question is: what bonding curve function we pick in order to
 satisfy its conditions? Here comes the Bancor protocol (see its [white
 paper](https://storage.googleapis.com/website-bancor/2018/04/01ba8253-bancor_protocol_whitepaper_en.pdf)).
@@ -101,8 +106,6 @@ information in the [Bancor network blog](https://blog.bancor.network/).  <!-- If
 interested, the post by [relevant.community from
 2018](https://blog.relevant.community/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17)
 discuss similar -->
-
-## Mathematical reasoning of Bancor's V1 
 
 Here for illustration purposes, we will use a single reserve holding a
 single token. Let's imagine we have a reserve in some currency
@@ -182,14 +185,15 @@ Let's call the value added or removed to the reserve $$\Delta
 r$$. Remember the because of the second property we demanded, we need to
 compute the integral of the price
 
-$$ \begin{array}{rcl}
-\Delta r & = & \int_{s}^{s+\Delta s} p(z)dz\\
+$$\begin{array}{rcl}
+\Delta r & = & \int_{s}^{s+\Delta s} p(z)dz \\
 \Delta r & = & \int_{s}^{s+\Delta s} p_0 \left( \frac{dz}{s_0} \right)^{\frac{1}{a}-1} dz
+\end{array}
 $$
 
 therefore
 
-$$ \Delta r = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) 
+$$ \Delta r = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
 
 In case we want to sell or buy tokens for a given amount of currency, we
 can invert the previous relation to obtain
@@ -214,6 +218,3 @@ Here are a few ideas:
   changing their form relates to those criterias?
  --> 
 
-## Further resources
-
-If you are interested
