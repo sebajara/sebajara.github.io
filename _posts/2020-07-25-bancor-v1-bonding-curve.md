@@ -179,7 +179,12 @@ where $$p_0$$ and $$s_0$$ represent some pair of price and token supply
 values for which the mapping is known. In practice, these are typically
 the initial values.
 
-Then we can obtain the value of the reserve by replacing $$p(s)$$ on $$r(s) = aps$$
+Play with the parameter values on this plot. Particularly the reserve
+fraction $$a$$!
+{% include 2020_07_26_bancor_v1_bonding_curve.html %}
+
+Finally, we can obtain the value of the reserve by replacing $$p(s)$$ on
+$$r(s) = aps$$
 
 $$r(s) = f(ps) = aps = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
 
@@ -210,10 +215,6 @@ $$
 
 So using these two equations we can map reserve currency to amount of
 tokens for any given purchase or sell transaction.
-
-### Interactive graphic 
-
-{% include 2020_07_26_bancor_v1_bonding_curve.html %}
 
 <!--
 
