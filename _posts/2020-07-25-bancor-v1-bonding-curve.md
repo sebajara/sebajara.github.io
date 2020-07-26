@@ -16,12 +16,14 @@ TODO. General intro. Motivation. CIC.
 ## Crypto-tokens and their price
 
 What is a [crypto-token](https://www.investopedia.com/terms/c/crypto-token.asp)?
-In simple terms are a kind of cryptocurrency that represents one unit of
-something that can be used. We will try to deal with the problem of how
-such token should be priced, which given the experience with [bitcoin
+In simple terms, they are a class of cryptocurrencies that represent
+something that can be used withing the blockchain. 
+
+We will be interested problem of how such token should be priced, which
+given the experience with [bitcoin
 volatility](https://www.investopedia.com/articles/investing/052014/why-bitcoins-value-so-volatile.asp),
-seems like an important issue. Specially if we mean to use tokens as way
-for people to create community currencies.
+seems like an important issue. Specially relevant if we mean to use
+tokens as way for people to create community currencies.
 
 ### The liquidity problem
 
@@ -98,35 +100,38 @@ reserve.
 Now the question is: what bonding curve function we pick in order to
 satisfy its conditions? Here comes the Bancor protocol (see its [white
 paper](https://storage.googleapis.com/website-bancor/2018/04/01ba8253-bancor_protocol_whitepaper_en.pdf)).
-I will only discuss here the mathematical reasoning of the protocol V1
-as in this
-[pdf](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view)
-from Meni Rosenfeld. If you are interested, you can find more
-information in the [Bancor network blog](https://blog.bancor.network/).  <!-- If you are
+I will only discuss here the mathematical reasoning of the protocol as
+explained by Meni Rosenfeld in this
+[pdf](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view). For
+illustration purposes, we will use a single reserve holding a single
+token. If you are interested, you can find more information in the
+[Bancor network blog](https://blog.bancor.network/).  <!-- If you are
 interested, the post by [relevant.community from
 2018](https://blog.relevant.community/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17)
 discuss similar -->
 
-Here for illustration purposes, we will use a single reserve holding a
-single token. Let's imagine we have a reserve in some currency
-(e.g. dollars or ETH) and we use it to store value when someone buys
-tokens, and take value from when someone sells them. We explained
-previously that we demand certain properties:
+Let's imagine we have a reserve in some currency (e.g. dollars or
+ETH) and we use it to store value when someone buys tokens, and take
+value from when someone sells them. We explained previously that we
+demand certain properties:
 * *Monotonic Bonding curve:* The bonding curve should be a monotonic
 function of the total tokens in circulation (supply). The higher the
-supply, the higher the price, and vice-versa. 
+supply, the higher the price, and vice-versa.
 * *Cost/Gain as integral of bonding curve*: the gain or cost from
-selling or buying tokens should be the integral of the bonding
-curve, and that amount is updated to the reserve. Note tha because the
-curve is monotonic, the amounts are reversible.
+selling or buying tokens should be the integral of the bonding curve,
+and that amount is updated to the reserve. Note that because the curve is
+monotonic, the amounts are reversible.
 * *Fractional reserve*: The relation between the value stored in the
 reserve and the supply should be invariant to changes in
 supply. Basically that if we define the reserve to hold 20% of the
 supply, it should always hold 20%.
-* Also, we want that the price for a supply of 0 should be also 0.
+* *Bonding curve start from the origin*: we want that the price for a
+  supply of 0 should be also 0.
 
-Note that particularly the first and second solve the liquidity
-problem. The rest are more or less particulars of the implementation.
+Note that the first and second solve the liquidity problem. The third
+condition particular to the fractional-reserve the implementation, and
+the last one seems captures the intuition that the curve should start
+from 0.
 
 ### Token price as the derivative of the reserve.
 
@@ -147,7 +152,7 @@ should satisfy
 
 $$p(s) = f^{\prime}(p s)\left(\frac{d p }{d s}s + p\right)$$
 
-where $$f^{\prime}(...)$$ is the derivative of the function with respec
+where $$f^{\prime}(...)$$ is the derivative of the function with respect
 to its argument.
 
 How we pick $$f(...)$$? In the context of fractional-reserve banking,
@@ -171,7 +176,7 @@ where $$p_0$$ and $$s_0$$ represent some pair of price and token supply
 values for which the mapping is known. In practice, these are typically
 the initial values.
 
-Then we can obtain the value of the reserve by replacing $$p$$ on $$aps$$
+Then we can obtain the value of the reserve by replacing $$p(s)$$ on $$r(s) = aps$$
 
 $$r(s) = f(ps) = aps = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
 
@@ -203,7 +208,11 @@ $$
 So using these two equations we can map reserve currency to amount of
 tokens for any given purchase or sell transaction.
 
-### Interactive bancor bonding curve graphic
+### Interactive graphics 
+
+## Potential benefits
+
+
 
 <!--
 ## Potential explorations
