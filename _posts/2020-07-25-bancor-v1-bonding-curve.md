@@ -66,7 +66,7 @@ TODO What about the liquidity of tokens?
 [Bancor protocol white paper](https://storage.googleapis.com/website-bancor/2018/04/01ba8253-bancor_protocol_whitepaper_en.pdf)
 
 We will only focus here on the mathematical reasoning of the proposed
-protocol V1 as explained by [Meni Rosenfeld](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view). 
+protocol V1 as [explained](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view) by Meni Rosenfeld.
 There is a similar post on this topic by
 [relevant.community from 2018](https://blog.relevant.community/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17).
 And more generally you can find lots of information in the [Bancor network blog](https://blog.bancor.network/).
@@ -80,7 +80,10 @@ Before getting into bancor's protocol, we need to introduce
 
 Let's imagine we have a reserve in some value currency (e.g. dollars or
 ETH) and we use to store value when someone buys tokens, and take value
-from when someone sells them.
+from when someone sells them. Here we will use a single reserve holding
+multiple tokens. See Meni Rosenfeld's
+[document](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view)
+to see how it would apply for a single token hold in multiple reserves. 
 
 Let's call $$r$$ the value hold in a reserve. We wish that the price of
 a token tracks down the total supply of tokens: the more tokens there
@@ -88,29 +91,24 @@ are, the higher the price, the less there are the smaller the price. One
 intuitive way to represent this, is to define price partial derivative of the
 reserve with respect to the total supply of token $$s_i$$
 
-$$p_i = \frac{\partial r}{\partial s_i}$$
+$$p_i(s_i) = \frac{\partial r}{\partial s_i}$$
 
 where by the index $$ _i$$ we mean some kind of token. We are imagining
 that we can use the same reserve to trade multiple kinds of tokens.
 
-$$r = \sum_i f_i(p_i s_i)$$
+$$r(s_1,...,s_n) = \sum_i f_i(p_i s_i)$$
 
 The reason for using a function here is that later we can investigate it
 later. Then, using the chain rule, the price of $$t_i$$ is
 
-$$p_i = f_i^{\prime}(p_i s_i)\left(\frac{\partial p_i }{\partial s_i}s_i + p_i\right)$$
+$$p_i(s_i) = f_i^{\prime}(p_i s_i)\left(\frac{\partial p_i }{\partial s_i}s_i + p_i\right)$$
 
-and finally, the value added or removed to the reserve upong a certain
-change in token supply $$x$$ is
+where $$f_i^{\prime}$$ is the derivative of the function with respecto to its argument.
 
-$$\Delta r(x) = \int_{x_0+x}^{x_0} p_i(s_i) ds_i $$
+Finally, the value added or removed to the reserve ($$\Delta r$$)
+upong a certain change in token supply $$x$$ is
 
-<!--
-
-
-
-
-
+$$\Delta r(x) = \int_{s_i}^{s_i+x} p_i(z) dz $$
 
 So we have left is to pick a given $$f(...)$$. 
 
@@ -122,17 +120,31 @@ reserve.
 
 Now, the price is the solution to the equation
 
-$$p_i = a_i\left(\frac{\partial p_i }{\partial s_i}s_i + p_i\right)$$
+$$p_i(s_i) = a_i\left(\frac{\partial p_i }{\partial s_i}s_i + p_i\right)$$
 
 meaning that
 
-$$p_i = c s_i^{\frac{1}{a_i}-1} = \left\frac{s_i}{s_i^0} \right^{\frac{1}{a_i}-1}$$
+$$p_i(s_i) = c s_i^{\frac{1}{a_i}-1} = p_i^0$$\left\frac{s_i}{s_i^0} \right^{\frac{1}{a_i}-1}$$
 
--->
-
-By the way, Wolfram Alpha can
+where $$s_i^0$$ and $$s_i^0$$ represents the initial price and token
+supply respectively. In practice it can be any pair of values for which
+the mapping is known. Before moving, it should mention that Wolfram
+Alpha can
 [solve](https://www.wolframalpha.com/input/?i=p+%3D+a*%28p%27x%2Bp%29)
 the equation for you.
+
+Note that we can solve this equation individually for any token bonding
+curve $p_i$. So for any combination of token supplies
+
+$$r(s_1,...) = \sum_i a_i p_i^0 \left\frac{s_i}{s_i^0} \right^{\frac{1}{a_i}-1} s_i$$
+
+Then, if we exchange the supply from $$s_i$$ in $$x$$ by selling or
+buying, what we pay or gain in the reserve currency is the
+aforementioned integral
+
+$$ \int_{s_i}^{s_i+x} p_i(z) dz = a_i p_i^0 \left \left 1 + \frac{x}{s_i}\right^{\frac{1}{a_i}}- 1 \right $$
+
+
 
 
 ### Interactive bancor bonding curve graphic
