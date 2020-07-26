@@ -177,32 +177,28 @@ $$r(s) = f(ps) = aps = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
 
 ### Buying or selling tokens
 
-Say we wish to change the supply from $$s_0$$ to $$s_0+\Delta s$$ by buying
-or selling tokens. How much we pay/get in the units of the reserve
-currency?
-
-Let's call the value added or removed to the reserve $$\Delta
-r$$. Remember the because of the second property we demanded, we need to
-compute the integral of the price
+Say we wish to change the supply from $$s_0$$ to $$s_0+\Delta s$$ by
+buying or selling tokens. How much we pay/get in the units of the
+reserve currency? Let's call this value $$\Delta r$$. Then using the
+function $$r(s)$$
 
 $$\begin{array}{rcl}
-\Delta r & = & \int_{s_0}^{s_0+\Delta s} p(z)dz \\
-\Delta r & = & \int_{s_0}^{s_0+\Delta s} p_0 \left( \frac{z}{s_0} \right)^{\frac{1}{a}-1} dz \\
-\Delta r & = & a p_0 s_0 \left( \left( \frac{s_0+\Delta s}{s_0} \right)^{\frac{1}{a}} - \left( \frac{s_0}{s_0} \right)^{\frac{1}{a}} \right) \\
-\Delta r & = & a p_0 s_0 \left( \left(1 + {s_0+\Delta s} \right)^{\frac{1}{a}} - 1 \right)
+	\Delta r & = & r(s_0 + \Delta s) - r(s_0) \\
+	\Delta r & = & a p_0 s_0^{1-\frac{1}{a}} \left( \left(s_0 + \Delta s \right)^{\frac{1}{a}} - s_0^{\frac{1}{a}} \right)\\
+	\Delta r & = & a p_0 s_0 \left( \left(1 + \frac{\Delta s}{s_0} \right)^{\frac{1}{a}} - 1 \right)
 \end{array}
 $$
-
-See this
-[link](https://www.wolframalpha.com/input/?i=integrate+p*%28x%2Fs%29%5E%28%281%2Fa%29-1%29)
-in Wolfram alpha for solving the integral. So we have a total amount of 
-
-$$ \Delta r = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
 
 In case we want to sell or buy tokens for a given amount of currency, we
 can invert the previous relation to obtain
 
-$$ \Delta s =  s \left( \left( 1 + \frac{\Delta r}{a p_0 s_0}\right)^{a}- 1 \right) $$
+$$\begin{array}{rcl}
+	\Delta r & = & a p_0 s_0 \left( \left(1 + \frac{\Delta s}{s_0} \right)^{\frac{1}{a}} - 1 \right) \\
+	\frac{\Delta r}{a p_0 s_0} & = &  \left(1 + \frac{\Delta s}{s_0} \right)^{\frac{1}{a}} - 1 \\
+	\left( \frac{\Delta r}{a p_0 s_0} + 1 \right)^a & = & \frac{\Delta s}{s_0} + 1
+	s_0 \left(\left( \frac{\Delta r}{a p_0 s_0} + 1 \right)^a - 1 \right) & = & \Delta s
+\end{array}
+$$
 
 So using these two equations we can map reserve currency to amount of
 tokens for any given purchase or sell transaction.
@@ -211,6 +207,8 @@ tokens for any given purchase or sell transaction.
 
 <!--
 ## Potential explorations
+
+$$ \Delta s =  s \left( \left( 1 + \frac{\Delta r}{a p_0 s_0}\right)^{a}- 1 \right) $$
 
 Here are a few ideas:
 * Generalize to multiple reserves in multiple tokens. As a network, is
