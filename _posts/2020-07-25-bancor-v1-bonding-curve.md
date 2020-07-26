@@ -13,7 +13,7 @@ NOTE: this a post in the making.
 
 TODO. General overview.
 
-## How I got here
+## Personal motivations 
 
 TODO
 
@@ -56,10 +56,10 @@ liquidity is facilitated by [Market Makers](https://en.wikipedia.org/wiki/Market
 Illiquid assets can lead to economic crisis, as it happened with the
 [Subprime mortgage
 crisis](https://en.wikipedia.org/wiki/Subprime_mortgage_crisis). Given
-my little knowledge in these topics, seems to me kind of surprising that
-markets don't crash more frequently.
+my little knowledge in these topics, the more I learn I find more and
+more surprising that the economic system remains somewhat stable at all.
 
-TODO What about the liquidity of tokens? 
+What about the liquidity of tokens? TODO
 
 ## Bancor's solution to liquidity (V1)
 
@@ -124,7 +124,7 @@ $$p_i(s_i) = a_i\left(\frac{\partial p_i }{\partial s_i}s_i + p_i\right)$$
 
 meaning that
 
-$$p_i(s_i) = c s_i^{\frac{1}{a_i}-1} = p_i^0 \left\frac{s_i}{s_i^0} \right^{\frac{1}{a_i}-1}$$
+$$p_i(s_i) = p_i^0 \left \frac{s_i}{s_i^0} \right^{\frac{1}{a_i}-1}$$
 
 where $$s_i^0$$ and $$s_i^0$$ represents the initial price and token
 supply respectively. In practice it can be any pair of values for which
