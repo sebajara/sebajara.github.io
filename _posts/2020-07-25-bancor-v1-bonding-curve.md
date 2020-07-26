@@ -1,8 +1,8 @@
 ---
-title: Bancor V1 bonding curve
+title: Bancor protocol bonding curve (V1)
 date: 2020-07-26
-tags: [Economics, Bancor, Token Bonding Curve, Fractional Reserve]
-excerpt: "Explanation of the reasoning behind bancor's protocol V1 + an interactive bonding curve application"
+tags: [Economics, Cryptocurrency, Token Bonding Curve, Fractional-reserve, Bancor, Mathematical modeling, Interactive]
+excerpt: "Motivated by developments in ways to create local community currencies, I try to explain the reasoning behind bancor's protocol (version 1)."
 mathjax: "true"
 toc: true
 toc_label: "Jump to:"
@@ -187,7 +187,8 @@ compute the integral of the price
 
 $$\begin{array}{rcl}
 \Delta r & = & \int_{s}^{s+\Delta s} p(z)dz \\
-\Delta r & = & \int_{s}^{s+\Delta s} p_0 \left( \frac{dz}{s_0} \right)^{\frac{1}{a}-1} dz
+\Delta r & = & \int_{s}^{s+\Delta s} p_0 \left( \frac{z}{s_0} \right)^{\frac{1}{a}-1} dz \\
+\Delta r & = & a p_0 s_0 \left( \left( \frac{s+\Delta s}{s_0} \right)^{\frac{1}{a}} - \left( \frac{s}{s_0} \right)^{\frac{1}{a}} \right)
 \end{array}
 $$
 
