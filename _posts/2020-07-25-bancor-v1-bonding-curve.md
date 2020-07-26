@@ -116,13 +116,14 @@ Let's imagine we have a reserve in some currency (e.g. dollars or
 ETH) and we use it to store value when someone buys tokens, and take
 value from when someone sells them. We explained previously that we
 demand certain properties:
-* *Monotonic Bonding curve:* The bonding curve should be a monotonic
+* *Strictly Monotonic Bonding curve:* The bonding curve should be a
+[strictly monotonic](https://en.wikipedia.org/wiki/Monotonic_function)
 function of the total tokens in circulation (supply). The higher the
 supply, the higher the price, and vice-versa.
 * *Cost/Gain as integral of bonding curve*: the gain or cost from
 selling or buying tokens should be the integral of the bonding curve,
-and that amount is updated to the reserve. Note that because the curve is
-monotonic, the amounts are reversible.
+and that amount is updated to the reserve. Note that because the curve
+is strictly monotonic, the amounts are reversible.
 * *Fractional reserve*: The relation between the value stored in the
 reserve and the supply should be invariant to changes in
 supply. Basically that if we define the reserve to hold 20% of the
@@ -202,24 +203,23 @@ can invert the previous relation to obtain
 $$\begin{array}{rcl}
 	a p_0 s_0 \left( \left(1 + \frac{\Delta s}{s_0} \right)^{\frac{1}{a}} - 1 \right) & = & \Delta r \\
 	\left(1 + \frac{\Delta s}{s_0} \right)^{\frac{1}{a}} - 1 & = & \frac{\Delta r}{a p_0 s_0}  \\
-	\frac{\Delta s}{s_0} + 1 & = & \left( \frac{\Delta r}{a p_0 s_0} + 1 \right)^a \\
-	\Delta s & = & s_0 \left(\left( \frac{\Delta r}{a p_0 s_0} + 1 \right)^a - 1 \right)
+	\frac{\Delta s}{s_0} + 1 & = & \left(1 +  \frac{\Delta r}{a p_0 s_0} \right)^a \\
+	\Delta s & = & s_0 \left(\left( 1 + \frac{\Delta r}{a p_0 s_0} \right)^a - 1 \right)
 \end{array}
 $$
 
 So using these two equations we can map reserve currency to amount of
 tokens for any given purchase or sell transaction.
 
-### Interactive graphics 
+### Interactive graphic 
 
-## Potential benefits
-
-
+{% include 2020_07_26_bancor_v1_bonding_curve.html %}
 
 <!--
-## Potential explorations
 
-$$ \Delta s =  s \left( \left( 1 + \frac{\Delta r}{a p_0 s_0}\right)^{a}- 1 \right) $$
+## Potential advantages of the formulas
+
+## Potential explorations
 
 Here are a few ideas:
 * Generalize to multiple reserves in multiple tokens. As a network, is
