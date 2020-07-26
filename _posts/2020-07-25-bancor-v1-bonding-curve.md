@@ -125,9 +125,9 @@ $$p_i(s_i) = a_i\left(\frac{\partial p_i }{\partial s_i}s_i + p_i\right)$$
 
 meaning that
 
-$$p_i(s_i) = p_i^0 \left( \frac{s_i}{s_i^0} \right)^{\frac{1}{a_i}-1} $$
+$$p_i(s_i) = p_{i0} \left( \frac{s_i}{s_{i0}} \right)^{\frac{1}{a_i}-1} $$
 
-where $$s_i^0$$ and $$s_i^0$$ represents the initial price and token
+where $$s_{i0}$$ and $$s_{i0}$$ represents the initial price and token
 supply respectively. In practice it can be any pair of values for which
 the mapping is known. Before moving, it should mention that Wolfram
 Alpha can
@@ -137,15 +137,19 @@ the equation for you.
 Note that we can solve this equation individually for any token bonding
 curve $$p_i$$. So for any combination of token supplies
 
-$$r(s_1,...) = \sum_i a_i p_i^0 \left( \frac{s_i}{s_i^0} \right)^{\frac{1}{a_i}-1} s_i$$
+$$r(s_1,...) = \sum_i a_i p_{i0} s_i \left( \frac{s_i}{s_{i0}} \right)^{\frac{1}{a_i}-1}$$
 
-Then, if we exchange the supply from $$s_i$$ in $$x$$ by selling or
-buying, what we pay or gain in the reserve currency is the
-aforementioned integral
+Now the question is. If we wish to change the supply from $$s_i$$ to
+$$s_i+x$$ by buying or selling tokens __how much we pay/get in the
+reserve currency?__. The answer is the aforementioned integral
 
-$$ \int_{s_i}^{s_i+x} p_i(z) dz = a_i p_i^0 \left( \left( 1 + \frac{x}{s_i}\right)^{\frac{1}{a_i}}- 1 \right) $$
+$$ price-diff = \int_{s_i}^{s_i+x} p_i(z) dz = a_i p_{i0} s_i \left( \left( 1 + \frac{x}{s_i}\right)^{\frac{1}{a_i}}- 1 \right) $$
 
+and then that price difference would be added to the reserve.
 
+In the reverse case... TODO.
+
+$$ token-diff = s_i \left( \left( 1 + \frac{y}{a_i p_{i0} s_0}\right)^{\frac{1}{a_i}}- 1 \right) $$
 
 
 ### Interactive bancor bonding curve graphic
