@@ -177,7 +177,7 @@ $$r(s) = f(ps) = aps = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
 
 ### Buying or selling tokens
 
-Say we wish to change the supply from $$s$$ to $$s+\Delta s$$ by buying
+Say we wish to change the supply from $$s_0$$ to $$s_0+\Delta s$$ by buying
 or selling tokens. How much we pay/get in the units of the reserve
 currency?
 
@@ -186,15 +186,16 @@ r$$. Remember the because of the second property we demanded, we need to
 compute the integral of the price
 
 $$\begin{array}{rcl}
-\Delta r & = & \int_{s}^{s+\Delta s} p(z)dz \\
-\Delta r & = & \int_{s}^{s+\Delta s} p_0 \left( \frac{z}{s_0} \right)^{\frac{1}{a}-1} dz \\
-\Delta r & = & a p_0 s_0 \left( \left( \frac{s+\Delta s}{s_0} \right)^{\frac{1}{a}} - \left( \frac{s}{s_0} \right)^{\frac{1}{a}} \right) \\
-\Delta r & = & a p_0 s_0^{1-\frac{1}{a}} \left( \left({s+\Delta s} \right)^{\frac{1}{a}} - \left( s \right)^{\frac{1}{a}} \right)
+\Delta r & = & \int_{s_0}^{s_0+\Delta s} p(z)dz \\
+\Delta r & = & \int_{s_0}^{s_0+\Delta s} p_0 \left( \frac{z}{s_0} \right)^{\frac{1}{a}-1} dz \\
+\Delta r & = & a p_0 s_0 \left( \left( \frac{s_0+\Delta s}{s_0} \right)^{\frac{1}{a}} - \left( \frac{s_0}{s_0} \right)^{\frac{1}{a}} \right) \\
+\Delta r & = & a p_0 s_0 \left( \left(1 + {s_0+\Delta s} \right)^{\frac{1}{a}} - 1 \right)
 \end{array}
 $$
 
-therefore (integral solved in
+See this
 [link](https://www.wolframalpha.com/input/?i=integrate+p*%28x%2Fs%29%5E%28%281%2Fa%29-1%29)
+in Wolfram alpha for solving the integral. So we have a total amount of 
 
 $$ \Delta r = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
 
