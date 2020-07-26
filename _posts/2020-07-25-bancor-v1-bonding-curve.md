@@ -48,8 +48,10 @@ so (e.g. see the wiki entry of [assets](https://en.wikipedia.org/wiki/Asset)).
 Intuitively, prices are set based on how much people are *willing* to
 trade. So in practical terms, liquidity amounts to the following: for
 any amount of asset I buy for a given price, there is someone else
-*willing* to buy it from me. How liquidity *ensured* in regular markets?
-Liquidity is facilitated by [Market
+*willing* to buy that amount it from me for approximately the same
+price. A bit like conservation of energy if we were talking about
+physical systems. How is liquidity *ensured* in regular markets?  Liquidity is
+facilitated by [Market
 Makers](https://en.wikipedia.org/wiki/Market_maker), which buy and sell
 assets making some profit from a bet on future price or by charging a
 commission.
