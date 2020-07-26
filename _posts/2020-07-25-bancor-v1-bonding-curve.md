@@ -132,10 +132,9 @@ $$r(s) = f(ps) = aps = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
 Say we wish to change the supply from $$s$$ to $$s+\Delta s$$ by buying
 or selling tokens. How much we pay/get in the reserve currency?
 
-Let's call the value added or removed to the reserve $$\Delta r =
-r(s+\Delta s)-r(s)$$. Then
+Let's call the value added or removed to the reserve $$\Delta r$$. Then
 
-$$ \Delta r = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
+$$ \Delta r = \int_{s}^{s+\Delta s} p(z)dz = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
 
 In case we want to sell or buy tokens for a given amount of currency, we
 can invert the relation to obtain
