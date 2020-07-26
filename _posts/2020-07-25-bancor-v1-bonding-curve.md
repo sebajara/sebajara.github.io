@@ -188,11 +188,13 @@ compute the integral of the price
 $$\begin{array}{rcl}
 \Delta r & = & \int_{s}^{s+\Delta s} p(z)dz \\
 \Delta r & = & \int_{s}^{s+\Delta s} p_0 \left( \frac{z}{s_0} \right)^{\frac{1}{a}-1} dz \\
-\Delta r & = & a p_0 s_0 \left( \left( \frac{s+\Delta s}{s_0} \right)^{\frac{1}{a}} - \left( \frac{s}{s_0} \right)^{\frac{1}{a}} \right)
+\Delta r & = & a p_0 s_0 \left( \left( \frac{s+\Delta s}{s_0} \right)^{\frac{1}{a}} - \left( \frac{s}{s_0} \right)^{\frac{1}{a}} \right) \\
+\Delta r & = & a p_0 s_0^{1-\frac{1}{a}} \left( \left({s+\Delta s} \right)^{\frac{1}{a}} - \left( s \right)^{\frac{1}{a}} \right)
 \end{array}
 $$
 
-therefore
+therefore (integral solved in
+[link](https://www.wolframalpha.com/input/?i=integrate+p*%28x%2Fs%29%5E%28%281%2Fa%29-1%29)
 
 $$ \Delta r = a p_0 s_0 \left( \left( 1 + \frac{\Delta s}{s}\right)^{\frac{1}{a}}- 1 \right) $$
 
