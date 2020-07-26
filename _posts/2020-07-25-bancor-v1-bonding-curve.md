@@ -1,6 +1,6 @@
 ---
 title: Bancor V1 bonding curve
-date: 2020-07-25
+date: 2020-07-26
 tags: [Economics, Bancor, Token Bonding Curve, Fractional Reserve]
 excerpt: "Explanation of the reasoning behind bancor's protocol V1 + an interactive bonding curve application"
 mathjax: "true"
@@ -11,118 +11,163 @@ toc_icon: "fast-forward"
 
 NOTE: this a post in the making.
 
-TODO. General overview.
+TODO. General intro. Motivation. CIC.
 
-## Personal motivations 
+## Crypto-tokens and their price
 
-TODO
+What is a [crypto-token](https://www.investopedia.com/terms/c/crypto-token.asp)?
+In simple terms are a kind of cryptocurrency that represents one unit of
+something that can be used.
 
-## Token bonding curves
-
-TODO What is a token? 
-[coinmonks](https://medium.com/coinmonks/token-bonding-curves-explained-7a9332198e0e)
-
-If we call $$s$$ total supply or volume of tokens, a token bonding curve
-$$p(...)$$ is a function that gives the value of one unit of token in
-some given currency units. In such a way, if we want to buy or sell a
-given amount of token we integrate $$p(...)$$ to calculate the
-price. For example, say we want to buy $$x$$ amounts of token and the
-current supply is $$x_0$$, then the price we pay is
-$$\int_{x_0}^{x_0+x}p(...)ds$$. The interesting question is what the
-price function should look like? and with what consequences?
 
 ### The liquidity problem
 
-There are many considerations that can go into deciding a
-bonding curve (e.g. see the post on the
-[molecule-blog](https://medium.com/molecule-blog/token-bonding-curve-design-parameters-95d365cbec4f)).
-But an obvious problem is "token
-liquidity". Wikipedia
-defines [market liquidity](https://en.wikipedia.org/wiki/Market_liquidity) as
+An immediate problem with setting the price of a token is
+"liquidity". Wikipedia defines [market
+liquidity](https://en.wikipedia.org/wiki/Market_liquidity) as
 
 > a market's feature whereby an individual or firm can quickly purchase
 > or sell an asset without causing a drastic change in the asset's
 > price.
 
-With money this is not regularly a problem ("*cash is the most liquid
-asset*"). But it can become one if we trade using some arbitrary
-[asset](https://en.wikipedia.org/wiki/Asset). In regular markets,
-liquidity is facilitated by [Market Makers](https://en.wikipedia.org/wiki/Market_maker), which
+Liquidity is very important for a healthy economy, as illiquid assets
+can lead to economic crisis (e.g. the [Subprime mortgage
+crisis](https://en.wikipedia.org/wiki/Subprime_mortgage_crisis).
 
-> seek to profit by charging for the immediacy of execution: either
-> implicitly by earning a bid/ask spread or explicitly by charging
-> execution commissions
+If you are under the intuition that money is a physical thing, it may be
+difficult to grasp immediately why liquidity can become a problem. But
+economies can run on anything that people are *willing* to trade with;
+and over time, markets have become more rich in their means to do
+so (e.g. see the wiki entry of [assets](https://en.wikipedia.org/wiki/Asset)). 
 
-Illiquid assets can lead to economic crisis, as it happened with the
-[Subprime mortgage
-crisis](https://en.wikipedia.org/wiki/Subprime_mortgage_crisis). Given
-my little knowledge in these topics, the more I learn, the more
-surprising the stability of economic systems appears to me.
+Intuitively, prices are set based on how much people are *willing* to
+trade. So in practical terms, liquidity amounts to the following: for
+any amount of asset I buy for a given price, there is someone else
+*willing* to buy it from me. How liquidity *ensured* in regular markets?
+Liquidity is facilitated by [Market
+Makers](https://en.wikipedia.org/wiki/Market_maker), which buy and sell
+assets making some profit from a bet on future price or by charging a
+commission.
 
-What about the liquidity of tokens? TODO
+So deciding how tokens are priced is crucial, if they intend to be used
+as stable means for trade.
 
-## Bancor's solution to liquidity (V1)
+## Token bonding curves
 
-[Bancor protocol white paper](https://storage.googleapis.com/website-bancor/2018/04/01ba8253-bancor_protocol_whitepaper_en.pdf)
+Here comes the bonding curve. In simple terms, a token bonding curve is
+a function $$p(s)$$ that gives the value of one unit of token in some
+given currency units, where $$s$$ is total supply of tokens in
+circulation. Then to buy or sell a given amount of token, we integrate
+$$p(s)$$ to calculate the price. If you want to learn more about
+bonding-curves checkout the blog posts by
+[yos.io](https://yos.io/2018/11/10/bonding-curves/), 
+[relevant.community](https://blog.relevant.community/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17),
+, and [coinmonks](https://medium.com/coinmonks/token-bonding-curves-explained-7a9332198e0e).
 
-We will only focus here on the mathematical reasoning of the proposed
-protocol V1 as [explained](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view) by Meni Rosenfeld.
-There is a similar post on this topic by
-[relevant.community from 2018](https://blog.relevant.community/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17).
-And more generally you can find lots of information in the [Bancor network blog](https://blog.bancor.network/).
+Bonding curves were first proposed in the context of "[curation
+markets](https://medium.com/@simondlr/introducing-curation-markets-trade-popularity-of-memes-information-with-code-70bf6fed9881)",
+where tokens were already operating under certain rules. In particular:
+* A token that can be minted at any time (continuous) according to a
+  price set by the smart contract.
+* This price gets more expensive as more tokens are in circulation.
+* The amount paid for the token is kept in a communal reserve.
+* At any point in time, a token can be withdrawn (“burned”) from the
+  active supply, and a proportional part of the communal reserve can be
+  taken with.
+Let's unpack a few terms. 
 
-### Fractional-reserve banking
+Smart contracts are code that can be attached to tokens to perform
+certain functions automatically. The bonding curve would be the function
+that smart contracts implement to calculate prices. See particularly
+the post by [yos.io](https://yos.io/2018/11/10/bonding-curves/) on how
+bonding curve smart contracts can be implemented.
 
-Before getting into bancor's protocol, we need to introduce
-[Fractional-reserve banking](https://en.wikipedia.org/wiki/Fractional-reserve_banking). TODO
+The second important term is the one of "reserve". I was not aware, but
+the idea is quite old (see [Fractional-reserve
+banking](https://en.wikipedia.org/wiki/Fractional-reserve_banking) on
+Wikipedia). In the context of a bonding curve, the reserve would be some
+some way to store and update the total value of token supply, such that
+for every buy/sell of tokens, the value is added/subtracted to/from the
+reserve.
 
-### Token price defined as the derivative of the reserve
+Now the question is: what bonding curve function we pick in order to
+satisfy its conditions? Here comes the Bancor protocol (see its [white
+paper](https://storage.googleapis.com/website-bancor/2018/04/01ba8253-bancor_protocol_whitepaper_en.pdf)).
+I will only discuss here the mathematical reasoning of the protocol V1
+as in this
+[pdf](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view)
+from Meni Rosenfeld. If you are interested, you can find more
+information in the [Bancor network blog](https://blog.bancor.network/).  <!-- If you are
+interested, the post by [relevant.community from
+2018](https://blog.relevant.community/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17)
+discuss similar -->
 
-Let's imagine we have a reserve in some value currency (e.g. dollars or
-ETH) and we use to store value when someone buys tokens, and take value
-from when someone sells them. Here we will use a single reserve holding
-a single token. See Meni Rosenfeld's
-[document](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view)
-to see how it would apply for a single token hold in multiple reserves. 
+## Mathematical reasoning 
 
-Let's call $$r$$ the value hold in a reserve. We wish that the price of
-a token tracks down the total supply of tokens: the more tokens there
-are, the higher the price, the less there are the smaller the price. One
-intuitive way to represent this, is to define price partial derivative of the
-reserve with respect to the total supply of token $$s$$
+Here for illustration purposes, we will use a single reserve holding a
+single token. Let's imagine we have a reserve in some currency
+(e.g. dollars or ETH) and we use it to store value when someone buys
+tokens, and take value from when someone sells them. We explained
+previously that we demand certain properties:
+
+i. *Monotonic Bonding curve:* The bonding curve should be a monotonic
+function of the total tokens in circulation (supply). The higher the
+supply, the higher the price, and vice-versa. 
+ii. *Fractional reserve*: The relation between the value stored in the
+reserve and the supply should be invariant to changes in
+supply. Basically that if we define the reserve to hold 20% of the
+supply, it should always hold 20%.
+ii. *Cost/Gain as integral of bonding curve*: the gain or cost from
+selling or buying tokens should be the integral of the bonding
+curve, and that amount is updated to the reserve. Note tha because the
+curve is monotonic, the amounts are reversible.
+iv. Also, we want that the price for a supply of 0 should be also 0.
+
+Note that particularly it is property *i* and *iii* that solves the
+liquidity problem. The rest are more or less particulars of the
+implementation.
+
+### Token price as the derivative of the reserve.
+
+Let's call $$r$$ the value hold in a reserve. One intuitive way to
+represent the first condition we demanded is to define price as the
+derivative of the reserve with respect to the total supply of tokens
+$$s$$
 
 $$p(s) = \frac{d r}{d s}$$
 
-For generality, let's say the value of the reserve is some function of
-the total value of the supply
+For generality, let's encode the second property as saying that the value
+of the reserve is some function of the total value of the supply
 
 $$r(s) = f(p s)$$
 
-Using the chain rule the price is
+Now note that we can use the chain rule, and we find that the price
+should satisfy
 
 $$p(s) = f^{\prime}(p s)\left(\frac{d p }{d s}s + p\right)$$
 
-where $$f^{\prime}(...)$$ is the derivative of the function with respecto to
-its argument. 
+where $$f^{\prime}(...)$$ is the derivative of the function with respec
+to its argument.
 
-So we have left is to pick a given $$f(...)$$. In the context of
-fractional-reserve banking, we pick a linear function $$f(p s) = a p s$$.
-In particular the range $$0 < a \le 1$$ is required to maintain the
-meaning in "fractional". For example, taking $$a=0.5$$ means half the
-total value of the token supply $$p s$$ is in the reserve.
+How we pick $$f(...)$$? In the context of fractional-reserve banking,
+$$f(...)$$ is a linear function $$f(p s) = a p s$$, and in order to
+maintain the meaning of "fractional", the constant $$a$$ should be in
+the rage $$0 < a \le 1$$. For example, picking $$a=0.5$$ means that half
+the total value of the token supply $$p s$$ is in the reserve at all
+times.
 
 Based on our previous definitions, the price must satisfy
 
 $$ p(s) = a\left(\frac{d p }{d s}s + p\right)$$
 
-so the solution is (see
+so the bonding curve is (see
 [link](https://www.wolframalpha.com/input/?i=p+%3D+a*%28p%27x%2Bp%29)
 for solving the equation with Wolfram Alpha)
 
 $$ p(s) = p_0 \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1}$$
 
 where $$p_0$$ and $$s_0$$ represent some pair of price and token supply
-values for which the mapping is known. In practice, this are typically
+values for which the mapping is known. In practice, these are typically
 the initial values.
 
 Then we can obtain the value of the reserve by replacing $$p$$ on $$aps$$
@@ -174,3 +219,7 @@ Here are a few ideas:
   functions in different cases? E.g. volatility, caps, etc. Then see how
   changing their form relates to those criterias?
  --> 
+
+## Further resources
+
+If you are interested
