@@ -143,13 +143,24 @@ Now the question is. If we wish to change the supply from $$s_i$$ to
 $$s_i+x$$ by buying or selling tokens __how much we pay/get in the
 reserve currency?__. The answer is the aforementioned integral
 
-$$ price-diff = \int_{s_i}^{s_i+x} p_i(z) dz = a_i p_{i0} s_i \left( \left( 1 + \frac{x}{s_i}\right)^{\frac{1}{a_i}}- 1 \right) $$
+$$ \Delta r = a_i p_{i0} s_i \left( \left( 1 + \frac{x}{s_i}\right)^{\frac{1}{a_i}}- 1 \right) $$
 
 and then that price difference would be added to the reserve.
 
 In the reverse case... TODO.
 
-$$ token-diff = s_i \left( \left( 1 + \frac{y}{a_i p_{i0} s_0}\right)^{\frac{1}{a_i}}- 1 \right) $$
-
+$$ \Delta t_i =  s_i \left( \left( 1 + \frac{y}{a_i p_{i0} s_0}\right)^{\frac{1}{a_i}}- 1 \right) $$
 
 ### Interactive bancor bonding curve graphic
+
+## Potential explorations
+
+Here are a few ideas:
+* Generalize to multiple reserves in multiple tokens. As a network, is
+  there a benefit on having certain network topology?
+* Explore using negative values for constants $$a_i$$ as a way to encode
+  "dislikes economies" (e.g. something like carbon credit).
+* Can we formalize what we expect from the price and reserve/token
+  functions in different cases? E.g. volatility, caps, etc. Then see how
+  changing their form relates to those criterias?
+  
