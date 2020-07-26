@@ -111,18 +111,19 @@ In particular the range $$0 < a \le 1$$ is required to maintain the
 meaning in "fractional". For example, taking $$a=0.5$$ means half the
 total value of the token supply $$p s$$ is in the reserve.
 
-Now, the price is the solution to the equation 
+Based on our previous definitions, the price must satisfy
 
-$$
-\begin{array}{rcl}
-p(s) & = & a\left(\frac{d p }{d s}s + p\right)\\
-p(s) & = & p_0 \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1}
-\end{array}$$
-$$$$
+$$ p(s) = a\left(\frac{d p }{d s}s + p\right)$$
 
-where $$p_0$$ and $$s_0$$ represents the initial price and token supply
-respectively. In practice, could have picked any pair of values for
-which the mapping is known. [see link for solving the equation with wolframalpha](https://www.wolframalpha.com/input/?i=p+%3D+a*%28p%27x%2Bp%29)
+so the solution is (see
+[link](https://www.wolframalpha.com/input/?i=p+%3D+a*%28p%27x%2Bp%29)
+for solving the equation with Wolfram Alpha)
+
+$$ p(s) = p_0 \left( \frac{s}{s_0} \right)^{\frac{1}{a}-1}$$
+
+where $$p_0$$ and $$s_0$$ represent some pair of price and token supply
+values for which the mapping is known. In practice, this are typically
+the initial values.
 
 Then we can obtain the value of the reserve by replacing $$p$$ on $$aps$$
 
