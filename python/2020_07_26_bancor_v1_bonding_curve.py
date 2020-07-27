@@ -12,7 +12,7 @@ s0 = 100
 p0 = 1
 
 # make our lists
-x1 = [2*(n/100)*a*s0*p0 for n in range(0, 100)]
+x1 = [2*(n/100)*s0 for n in range(0, 100)]
 y1 = [p0 * ((s/s0) ** (1/a-1)) for s in x1]
 x2 = [s0*(n/50) for n in range(-50, 50)]
 y2 = [a*p0*s0*((1 + ds/s0)**(1/a) - 1) for ds in x2]
