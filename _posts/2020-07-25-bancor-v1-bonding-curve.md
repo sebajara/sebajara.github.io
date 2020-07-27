@@ -97,25 +97,29 @@ some way to store and update the total value of token supply, such that
 for every buy/sell of tokens, the value is added/subtracted to/from the
 reserve.
 
-## Bancor's protocol V1 
+## Axiomatic approach to Bancor's protocol 
 
-Now the question is: what bonding curve function we pick in order to
-satisfy its conditions? Here comes the Bancor protocol (see its [white
-paper](https://storage.googleapis.com/website-bancor/2018/04/01ba8253-bancor_protocol_whitepaper_en.pdf)).
-I will only discuss here the mathematical reasoning of the protocol as
-explained by Meni Rosenfeld in this
-[pdf](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view). For
-illustration purposes, we will use a single reserve holding a single
-token. If you are interested, you can find more information in the
-[Bancor network blog](https://blog.bancor.network/).  <!-- If you are
-interested, the post by [relevant.community from
+What function for the bonding curve should we pick? I will try to
+explain the argument for what Bancor (V1) propose, as defined by Meni
+Rosenfeld in this
+[pdf](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view). If
+you are interested, you can find more information in the [Bancor network
+blog](https://blog.bancor.network/).  <!-- If you are interested, the
+post by [relevant.community from
 2018](https://blog.relevant.community/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17)
 discuss similar -->
 
-Let's imagine we have a reserve in some currency (e.g. dollars or
-ETH) and we use it to store value when someone buys tokens, and take
-value from when someone sells them. We explained previously that we
-demand certain properties:
+I've been thinking on using an "axiomatic" approach to explain the
+protocol. The idea will be to define what we want out of the system as a
+set of principles, and then infer the equations that satisfy those
+principles. First, let's imagine we have a reserve in some currency
+(e.g. dollars or ETH) and we use it to store value when someone buys
+tokens, and take value from when someone sells them. For illustration
+purposes, we will use a single reserve holding a single token.
+
+Now, here is my attempt at formally defining the principles of the
+bonding curve. We wish that the reserve, the supply, and the bonding
+curve satify these properties:
 * *Strictly Monotonic Bonding curve:* The bonding curve should be a
 [strictly monotonic](https://en.wikipedia.org/wiki/Monotonic_function)
 function of the total tokens in circulation (supply). The higher the
@@ -134,9 +138,9 @@ supply, it should always hold 20%.
 Note that the first and second solve the liquidity problem. The third
 condition particular to the fractional-reserve the implementation, and
 the last one seems captures the intuition that the curve should start
-from 0.
+from 0. Now, let's see how to derive the bonding curve.
 
-### Token price as the derivative of the reserve.
+### Derivation of the bonding curve
 
 Let's call $$r$$ the value hold in a reserve. One intuitive way to
 represent the first condition we demanded is to define price as the
@@ -184,6 +188,8 @@ $$r(s) = aps$$
 
 $$r(s) = f(ps) = aps = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
 
+### Bonding curve interactive graphic
+
 Play with the parameter values on this figure to get a feeling for the
 bonding curve, specially the reserve fraction $$a$$.
 {% include 2020_07_26_bancor_v1_bonding_curve.html %}
@@ -213,7 +219,7 @@ $$\begin{array}{rcl}
 \end{array}
 $$
 
-So using these two equations we can map reserve currency to amount of
+Then, using these two equations we can map reserve currency to amount of
 tokens for any given purchase or sell transaction.
 
 <!--
