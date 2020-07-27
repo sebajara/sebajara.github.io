@@ -123,9 +123,10 @@ contracts implement to calculate the prices of tokens. The post by
 explaining the implementation side of the bonding curve. The second
 important term is the one of "reserve". In the context of a bonding
 curve, the reserve would be some way to store and update the total value
-of token supply, such that for every buy/sell transaction of tokens, the
-value is added/subtracted to/from the reserve. I was not aware, but the
-idea is quite old and commonly used, e.g. see [Fractional-reserve
+of the token supply, such that for every buy/sell transaction of tokens,
+that currency amount is added/subtracted to/from the reserve. I was not
+aware, but the idea is quite old and commonly used, e.g. see
+[Fractional-reserve
 banking](https://en.wikipedia.org/wiki/Fractional-reserve_banking) on
 Wikipedia.
 
