@@ -13,12 +13,13 @@ toc_icon: "fast-forward"
 
 During this pandemic, with a group of friends, we have been particularly
 interested in some novel developments on economic interventions to favor
-vulnerable communities. In particular the efforts of [Grassroots
+vulnerable communities. In particular the efforts by [Grassroots
 Economics](https://www.grassrootseconomics.org/) in Africa. They have
-developed a strategy to enable local communities to create their own
-currencies to facilitate local trade, and the program is sponsored by
-the [Red
-Cross](https://www.innovasjonnorge.no/no/subsites/hipnorway/innovation-projects2/red-cross-sparks-development-with-blockchain-community-currencies/.).
+developed a strategy to facilitate local trade by enabling local
+communities to create their own currencies. In addition their
+perspective include cultural elements and a sense of building healthy
+communities. What is impressive, is that their program is sponsored by
+the [Red Cross](https://www.innovasjonnorge.no/no/subsites/hipnorway/innovation-projects2/red-cross-sparks-development-with-blockchain-community-currencies/.).
 The underlying hypothesis is that
 
 > Vulnerable communities do not lack demand, or labour, or ideas. They
@@ -28,8 +29,8 @@ The underlying hypothesis is that
 > affected by crises to effectively create their own local currencies to
 > bootstrap development.
 
-Given the looming upcoming crisis, sounds like an amazing idea. If you
-want to learn more about the
+Given the looming upcoming crisis, sounds like an idea worth to
+understand and perhaps replicate. If you want to learn more about the
 [CIC](https://gitlab.com/grassrootseconomics/cic-docs/-/blob/master/README.md),
 you can look at [Will Ruddick](https://twitter.com/wor?lang=en)'s
 youtube [channel](https://www.youtube.com/user/motomotocircus), and also
