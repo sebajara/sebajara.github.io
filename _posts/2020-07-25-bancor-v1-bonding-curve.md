@@ -1,5 +1,5 @@
 ---
-title: Bancor protocol bonding curve (V1)
+title: Bancor's protocol bonding curve (V1)
 date: 2020-07-27
 tags: [Economics, Cryptocurrency, Token Bonding Curve, Fractional-reserve, Bancor, Mathematical modeling, Interactive]
 header:
