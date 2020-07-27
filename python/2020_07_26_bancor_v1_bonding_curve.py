@@ -39,7 +39,7 @@ plots[0].add_tools(HoverTool(tooltips=[('Supply', '@x1 tokens'), ('Price', '$@y1
 
 # Buying/selling at Fixed token change
 plots[1] = Figure(plot_width=pw, plot_height=ph,
-                  title="Buy/Sell at fixed Δs",
+                  title="Buying/Selling Curve",
                   x_axis_label="Token supply change (Δs)",
                   y_axis_label="Reserve change (Δr)")
 plots[1].line(x='x2', y='y2', source=source, line_width=5, line_alpha=0.6, color=blue)
@@ -48,7 +48,7 @@ plots[1].add_tools(HoverTool(tooltips=[('Buy / Sell', '@x2 tokens'), ('Cost / Ga
 
 # Buying/selling at Fixed reserve change
 plots[2] = Figure(plot_width=pw, plot_height=ph,
-                  title="Buy/Sell at fixed Δr",
+                  title="Buying/Selling Curve",
                   x_axis_label="Reserve change (Δr)",
                   y_axis_label="Token supply change (Δs)")
 plots[2].line(x='y2', y='x2', source=source, line_width=5, line_alpha=0.6, color=blue)
@@ -94,8 +94,8 @@ slider2.js_on_change('value', callback)
 slider3.js_on_change('value', callback)
 
 # organize into rows and columns, then show it
-show(row(column(plots[0], slider1, slider2, slider3),
-         column(plots[1], plots[2])))
+#show(row(column(plots[0], slider1, slider2, slider3),
+#         column(plots[1], plots[2])))
 
-#show(row(column(slider1, slider2, slider3),
-#         plots[0], plots[1], plots[2]))
+show(row(column(slider1, slider2, slider3),
+         plots[0], plots[1], plots[2]))

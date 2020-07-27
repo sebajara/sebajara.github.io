@@ -49,10 +49,11 @@ energy in a reversible path if we were talking about physical
 systems. How is liquidity *ensured* in regular markets?  Liquidity is
 facilitated by [Market
 Makers](https://en.wikipedia.org/wiki/Market_maker), which buy and sell
-assets making some profit from a bet on future price or by charging a
-commission. Liquidity is very important for a healthy economy, as
-illiquid assets can lead to economic crisis (e.g. the [Subprime mortgage
-crisis](https://en.wikipedia.org/wiki/Subprime_mortgage_crisis).
+assets making some profit from betting on the future price or by
+charging a commission. Liquidity is very important for a healthy
+economy, as illiquid assets can lead to economic crisis (e.g. the
+[subprime mortgage
+crisis](https://en.wikipedia.org/wiki/Subprime_mortgage_crisis)).
 
 So deciding how tokens are priced is crucial, if they intend to be used
 as stable means for trade.
@@ -153,7 +154,7 @@ To encode fractional-banking, the value of the reserve should be a
 linear function of the total value in the supply, which is
 $$p(s)$$ times $$s$$
 
-$$r(s) = a p(s) s $$
+$$r(s) = a s p(s)$$
 
 and to maintain the "fractional" meaning, the constant $$a$$ should be
 in the range $$0 < a \le 1$$. For example, picking $$a=0.5$$ means that
@@ -163,7 +164,7 @@ all times.
 Let's see how to obtain $$p(s)$$ and $$r(s)$$. First, note that by using
 the chain rule the price should satisfy the following equation
 
-$$p(s) = r^{\prime}(s)\left(\frac{d p }{d s}s + p\right) = a\left(\frac{d p }{d s}s + p\right)$$
+$$p(s) = a\left(\frac{d p }{d s}s + p\right)$$
 
 which is enough to derive the bonding curve $$p(s)$$ (see this
 [link](https://www.wolframalpha.com/input/?i=p+%3D+a*%28p%27x%2Bp%29)
@@ -176,7 +177,7 @@ values for which the mapping is known, e.g. their initial values.
 
 Finally, we can obtain the value of the reserve by replacing $$p(s)$$ 
 
-$$r(s) = ap(s)s = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
+$$r(s) = asp(s) = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
 
 ### Buying and selling tokens
 
