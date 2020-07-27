@@ -1,7 +1,9 @@
 ---
 title: Bancor protocol bonding curve (V1)
-date: 2020-07-26
+date: 2020-07-27
 tags: [Economics, Cryptocurrency, Token Bonding Curve, Fractional-reserve, Bancor, Mathematical modeling, Interactive]
+header:
+  image: "/assets/images/bancor_bonding_curve_interactive_example.png"
 excerpt: "Motivated by developments in ways to create local community currencies, I try to explain the reasoning behind bancor's protocol (version 1)."
 mathjax: "true"
 toc: true

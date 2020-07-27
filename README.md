@@ -9,6 +9,5 @@ adding a few minor edits, mostly on the style-sheet for appearance.
 * [MathJax quick reference](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
 
 ## TODO
-- Add 
 - On posts layout, add snapshot of the header image.
 - On posts layout, add toc?

@@ -1,4 +1,4 @@
-from bokeh.models import ColumnDataSource, CustomJS, Slider
+from bokeh.models import ColumnDataSource, CustomJS, Slider, HoverTool
 from bokeh.plotting import Figure
 from bokeh.layouts import row, column
 from bokeh.io import output_file, show
@@ -36,6 +36,8 @@ plots[0] = Figure(plot_width=pw, plot_height=ph,
                   y_axis_label="Price per token (p)")
 
 plots[0].line(x='x1', y='y1', source=source, line_width=5, line_alpha=0.6, color=green)
+plots[0].add_tools(HoverTool(tooltips=[('Supply', '@x1 tokens'), ('Price', '$@y1')],
+                             mode='vline'))
 
 # Buying/selling at Fixed token change
 plots[1] = Figure(plot_width=pw, plot_height=ph,
@@ -43,6 +45,8 @@ plots[1] = Figure(plot_width=pw, plot_height=ph,
                   x_axis_label="Token supply change (Δs)",
                   y_axis_label="Reserve change (Δr)")
 plots[1].line(x='x2', y='y2', source=source, line_width=5, line_alpha=0.6, color=blue)
+plots[1].add_tools(HoverTool(tooltips=[('Buy / Sell', '@x2 tokens'), ('Cost / Gain', '$@y2')],
+                             mode='vline'))
 
 # Buying/selling at Fixed reserve change
 plots[2] = Figure(plot_width=pw, plot_height=ph,
@@ -50,6 +54,8 @@ plots[2] = Figure(plot_width=pw, plot_height=ph,
                   x_axis_label="Reserve change (Δr)",
                   y_axis_label="Token supply change (Δs)")
 plots[2].line(x='y2', y='x2', source=source, line_width=5, line_alpha=0.6, color=blue)
+plots[2].add_tools(HoverTool(tooltips=[('Cash out / Pay', '$@y2'), ('Loose / Gain', '$@x2 tokens')],
+                             mode='vline'))
 
 # set font size for all plots
 for n in range(0, 3):
