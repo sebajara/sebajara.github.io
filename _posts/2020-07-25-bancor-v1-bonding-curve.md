@@ -93,15 +93,16 @@ as stable means for trade.
 ## Token bonding curves
 
 In simple terms, a token bonding curve is a function $$p(s)$$ that takes
-the total supply of tokens in circulation $$s$$, and returns the price
-per token in some given currency units. Then to buy or sell a given
-amount of token, we integrate $$p(s)$$ to calculate the price. The
-simplest case is a constant price, where the integral is proportional to
-the amount of token. If you want to learn more about bonding-curves
-check out the blog posts by
-[yos.io](https://yos.io/2018/11/10/bonding-curves/), 
+the total supply of tokens in circulation $$s$$, and returns the
+"instantaneous" price per token (in some other currency units). Then to
+buy or sell a given amount of token, we integrate $$p(s)$$ to calculate
+the price. The simplest case is a constant price, where the integral is
+proportional to the amount of token. If you want to learn more about
+bonding-curves check out the blog posts by
+[yos.io](https://yos.io/2018/11/10/bonding-curves/),
 [relevant.community](https://blog.relevant.community/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17),
-, and [coinmonks](https://medium.com/coinmonks/token-bonding-curves-explained-7a9332198e0e).
+, and
+[coinmonks](https://medium.com/coinmonks/token-bonding-curves-explained-7a9332198e0e).
 
 Bonding curves were first proposed by XX in what he coined "[curation
 markets](https://medium.com/@simondlr/introducing-curation-markets-trade-popularity-of-memes-information-with-code-70bf6fed9881)",
