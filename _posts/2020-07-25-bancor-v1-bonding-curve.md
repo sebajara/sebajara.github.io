@@ -220,7 +220,7 @@ $$
 Then, using these two equations we can map reserve currency to amount of
 tokens for any given purchase or sell transaction.
 
-## Conclusions
+## Concluding remarks
 
 I hoped to show that bancor formulas are the only solution satisfying
 the propositions of the bonding curve and a fractional-reserve. More
