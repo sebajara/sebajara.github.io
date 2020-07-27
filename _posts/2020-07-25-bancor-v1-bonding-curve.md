@@ -146,8 +146,9 @@ So what function for the bonding curve should we pick? Bancor in their
 [protocol](https://about.bancor.network/protocol/) version 1 (V1)
 propose a particular set of equations.  I will try to explain the
 argument, as defined by Meni Rosenfeld in this
-[pdf](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view). I've
-been thinking of using an "axiomatic" approach to explain the
+[pdf](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view). 
+
+I've been thinking of using an "axiomatic" approach to explain the
 protocol. The idea will be to define what we want out of the system as a
 set of principles and then infer the equations that satisfy those
 principles. For illustration purposes, I will use a single reserve
