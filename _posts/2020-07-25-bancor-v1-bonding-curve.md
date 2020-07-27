@@ -31,16 +31,20 @@ The underlying hypothesis is that
 Given the looming upcoming crisis, sounds like an amazing idea. If you
 want to learn more about the
 [CIC](https://gitlab.com/grassrootseconomics/cic-docs/-/blob/master/README.md),
-you can look at [Will Ruddick's youtube
-channel](https://www.youtube.com/user/motomotocircus), and also this
+you can look at [Will Ruddick](https://twitter.com/wor?lang=en)'s
+youtube [channel](https://www.youtube.com/user/motomotocircus), and also
+this
 [page](https://www.notion.so/Community-Inclusion-Currencies-f3144a45387b4cf9b3578f8b7f67ecb8)
 organizes lots of useful related resources.
 
-Learning about the [CIC](https://gitlab.com/grassrootseconomics/cic-docs/-/blob/master/README.md) has open us to many interesting ideas about
-people are rethinking economic systems, many of them coming from the
-cryptocurrencies world. On the background, the
+Learning about the
 [CIC](https://gitlab.com/grassrootseconomics/cic-docs/-/blob/master/README.md)
-framework relies on cryptocurrencies and a [protocol](https://about.bancor.network/protocol/) for setting prices
+has open us to many interesting ideas about how people are rethinking
+economic systems, many of them coming from the cryptocurrency world. On
+the background, the
+[CIC](https://gitlab.com/grassrootseconomics/cic-docs/-/blob/master/README.md)
+framework relies on cryptocurrencies and a
+[protocol](https://about.bancor.network/protocol/) for setting prices
 developed by [Bancor](https://www.bancor.network/). In this post, I will
 try to explain the mathematical reasoning behind Bancor's protocol which
 is used to calculate the prices in CIC local currencies.
@@ -106,7 +110,8 @@ posts by
 , and
 [coinmonks](https://medium.com/coinmonks/token-bonding-curves-explained-7a9332198e0e).
 
-Bonding curves were first proposed by XX in what he coined "[curation
+Bonding curves were first proposed by (Simon de la
+Rouviere)[https://blog.simondlr.com/] in what he coined "[curation
 markets](https://medium.com/@simondlr/introducing-curation-markets-trade-popularity-of-memes-information-with-code-70bf6fed9881)",
 where tokens should operate under certain rules:
 * A token can be minted at any time (continuous) according to a price
