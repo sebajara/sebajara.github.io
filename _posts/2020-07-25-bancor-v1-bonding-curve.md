@@ -209,9 +209,8 @@ amount of tokens for any given purchase or sell transaction.
 
 ### Interactive graphic
 
-I made an interactive graphic using bokeh (see the script used to
-generate the graphic
-[here](https://raw.githubusercontent.com/sebajara/sebajara.github.io/master/python/2020_07_26_bancor_v1_bonding_curve.py))
+I made an interactive graphic using bokeh ([script in
+here](https://raw.githubusercontent.com/sebajara/sebajara.github.io/master/python/2020_07_26_bancor_v1_bonding_curve.py))
 to get an intuition for what the parameters mean. Note that changing the
 reserve fraction $$a$$ has a very strong effect on the curves. In
 particular, the smaller $$a$$ the less incentive there is for selling

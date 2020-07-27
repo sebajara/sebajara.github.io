@@ -94,8 +94,8 @@ slider2.js_on_change('value', callback)
 slider3.js_on_change('value', callback)
 
 # organize into rows and columns, then show it
-#show(row(column(plots[0], slider1, slider2, slider3),
-#         column(plots[1], plots[2])))
+show(row(column(plots[0], slider1, slider2, slider3),
+         column(plots[1], plots[2])))
 
-show(row(column(slider1, slider2, slider3),
-         plots[0], plots[1], plots[2]))
+#show(row(column(slider1, slider2, slider3),
+#         plots[0], plots[1], plots[2]))
