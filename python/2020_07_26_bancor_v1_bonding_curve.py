@@ -80,7 +80,7 @@ callback = CustomJS(args=dict(source=source, slider1=slider1, slider2=slider2, s
     var x2 = data['x2']
     var y2 = data['y2']
     for (var i = 0; i < x1.length; i++) {
-        x1[i] = 2*(i/x1.length)*f*s*p
+        x1[i] = 2*(i/x1.length)*s
         y1[i] = p*Math.pow(x1[i]/s, 1/f-1)
         x2[i] = s*((i/x2.length - 0.5))
         y2[i] = f*p*s*(Math.pow(1+x2[i]/s, 1/f)-1)
