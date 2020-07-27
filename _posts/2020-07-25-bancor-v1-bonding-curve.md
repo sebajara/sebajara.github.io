@@ -186,12 +186,6 @@ $$r(s) = aps$$
 
 $$r(s) = f(ps) = aps = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
 
-### Bonding curve interactive graphic
-
-Play with the parameter values on this figure to get a feeling for the
-bonding curve, specially the reserve fraction $$a$$.
-{% include blog-aux/2020_07_26_bancor_v1_bonding_curve.html %}
-
 ### Buying and selling tokens
 
 Say we wish to change the supply from $$s_0$$ to $$s_0+\Delta s$$ by
@@ -220,25 +214,41 @@ $$
 Then, using these two equations we can map reserve currency to amount of
 tokens for any given purchase or sell transaction.
 
+### Interactive graphic
+
+I made an interactive graphic using bokeh (see the script here) to get an
+intuition for what the parameters mean. Note that changing the reserve
+fraction $$a$$ has a very strong effect on the curves. In particular,
+the smaller $$a$$ the less incentive there is for selling tokens, and
+this property is what CIC uses to promote the local currency to remain
+within the community.
+
+{% include blog-aux/2020_07_26_bancor_v1_bonding_curve.html %}
+
 ## Concluding remarks
 
-I hoped to show that bancor formulas are the only solution satisfying
-the propositions of the bonding curve and a fractional-reserve. More
-generally, I find the very exciting the idea where conversion rates
-between currencies can be hard coded formally, and that they are being
-used to assist communities that are less favored by the economic
-system's *status quo*. In parallel, it would be interesting to explore
-different axioms. For example, I've been thinking that we could create a
-token representing carbon emissions, or something else we wish to avoid,
-and use it for trading. Clearly we would need someking of negative
-supply-reserve relations. In such case, it is unclear what function
-$$f(..)$$ mapping supply to reserve is best suited. So we could ask the
-question: using climate models, could we introduce axioms that can get
-us to avoid worst-case scenarios? and then derive the respective bonding
-curves? In another example, we may wish to could include encoding
-different properties of tokens such as volatility into the bonding
-curves, and then some new axioms and derivation would be needed. I hope
-to explore some of these questions in future posts.
+I hoped to have shown that Bancor formulas are the only solution
+satisfying the propositions of the bonding curve and a
+fractional-reserve. More generally, I find the very exciting the idea
+that conversion rates between currencies can be hardcoded formally, and
+that we can exploit some of their properties to assist communities that
+are less favored by the economic system's *status quo*, as the CIC is
+doing in Africa.
+
+In the future, would be interesting to explore different axioms for
+setting bonding curves. For example, I've been thinking that we could
+create a token representing carbon emissions, or something else we wish
+to avoid. Then use the token for trading such that we incentivize
+diminishing those bad outcomes. Clearly, we would need some kind of
+negative supply-reserve relation. But more generally, it is unclear what
+function $$f(..)$$ mapping the supply to the reserve would be best
+suited. By having a clear derivation procedure, perhaps we could take
+climate models, and ask how our market design (axioms) generate
+different curves and find one that *best* guarantees avoiding
+worst-case scenarios. Another area of exploration would encode
+different properties of tokens into the framework, such as volatility
+into the bonding curves. I hope to explore some of these questions in
+future posts.
 
 <!--
 
