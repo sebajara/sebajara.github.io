@@ -109,8 +109,7 @@ that is the intuition we have from the *day to day* usage of money. If
 you want to learn more about bonding-curves check out the blog posts by
 [yos.io](https://yos.io/2018/11/10/bonding-curves/),
 [relevant.community](https://blog.relevant.community/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17),
-, and
-[coinmonks](https://medium.com/coinmonks/token-bonding-curves-explained-7a9332198e0e).
+ and [coinmonks](https://medium.com/coinmonks/token-bonding-curves-explained-7a9332198e0e).
 
 Bonding curves were first proposed by (Simon de la
 Rouviere)[https://blog.simondlr.com/] in what he coined "[curation
@@ -174,12 +173,13 @@ supply, it should always hold 20%.
 * *Bonding curve starts from the origin*: the price for a supply of 0
   should be also 0.
 
-The first and second conditions can in principle solve the liquidity
+The first and second conditions can solve partially the liquidity
 problem, because they ensure that buying and selling tokens is
-reversible with respecto to how much we have to pay or are payed. The
-third condition is particular to the fractional-reserve implementation,
-and the last one captures the intuition that the curve should start
-from 0. Now, let's see how to derive the bonding curve.
+reversible with respecto to buying and selling back tokens right away;
+and more generally, we are guaranteed that tokens always have always a
+price. The third condition is particular to the fractional-reserve
+implementation. The last one captures the intuition that the curve
+should start from 0. Now, let's see how to derive the bonding curve.
 
 ### Derivation of the bonding curve
 
