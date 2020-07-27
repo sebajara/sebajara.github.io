@@ -230,17 +230,19 @@ used to assist communities that are less favored by the economic
 system's *status quo*. In parallel, it would be interesting to explore
 different axioms. For example, I've been thinking that we could create a
 token representing carbon emissions, or something else we wish to avoid,
-and trade using negative supply-reserve relations. In such case, is
-unclear whether a fractional-reserve may be best suited. Instead, we
-could ask the question of given the current climate situation, what are
-the best set of axioms that can get us to avoid worst-case
-scenarios. Other examples could be to encode different properties of
-tokens such as volatility into the bonding curves. I hope to explore
-some of these questions in future posts.
+and use it for trading. Clearly we would need someking of negative
+supply-reserve relations. In such case, it is unclear what function
+$$f(..)$$ mapping supply to reserve is best suited. So we could ask the
+question: using climate models, could we introduce axioms that can get
+us to avoid worst-case scenarios? and then derive the respective bonding
+curves? In another example, we may wish to could include encoding
+different properties of tokens such as volatility into the bonding
+curves, and then some new axioms and derivation would be needed. I hope
+to explore some of these questions in future posts.
 
 <!--
 
-## Potential advantages of the formulas
+## Potential advantages of the formulasusi
 
 ## Potential explorations
 
