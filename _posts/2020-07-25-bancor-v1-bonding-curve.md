@@ -94,7 +94,7 @@ as stable means for trade.
 
 In simple terms, a token bonding curve is a function $$p(s)$$ that takes
 the total supply of tokens in circulation $$s$$, and returns the
-"instantaneous" price per token (in some other currency units). Then to
+"*instantaneous*" price per token (in some other currency units). Then to
 buy or sell a given amount of token, we integrate $$p(s)$$ to calculate
 the price. The simplest case is a constant price, where the integral is
 proportional to the amount of token. If you want to learn more about
