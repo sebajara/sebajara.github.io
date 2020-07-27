@@ -16,8 +16,6 @@ x1 = [2*(n/100)*a*s0*p0 for n in range(0, 100)]
 y1 = [p0 * ((s/s0) ** (1/a-1)) for s in x1]
 x2 = [s0*(n/50) for n in range(-50, 50)]
 y2 = [a*p0*s0*((1 + ds/s0)**(1/a) - 1) for ds in x2]
-#y3 = [s0*(n/50) for n in range(-50, 50)]
-#x3 = [a*p0*s0*((1 + dr/s0)**(1/a) - 1) for dr in y3]
 
 # ColumnDataSource
 source = ColumnDataSource(data=dict(x1=x1, y1=y1, x2=x2, y2=y2))
@@ -54,7 +52,7 @@ plots[2] = Figure(plot_width=pw, plot_height=ph,
                   x_axis_label="Reserve change (Δr)",
                   y_axis_label="Token supply change (Δs)")
 plots[2].line(x='y2', y='x2', source=source, line_width=5, line_alpha=0.6, color=blue)
-plots[2].add_tools(HoverTool(tooltips=[('Cash out / Pay', '$@y2'), ('Loose / Gain', '$@x2 tokens')],
+plots[2].add_tools(HoverTool(tooltips=[('Cash out / Pay', '$@y2'), ('Lose / Gain', '$@x2 tokens')],
                              mode='vline'))
 
 # set font size for all plots
