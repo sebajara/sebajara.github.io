@@ -146,19 +146,17 @@ So what function for the bonding curve should we pick? Bancor in their
 [protocol](https://about.bancor.network/protocol/) version 1 (V1)
 propose a particular set of equations.  I will try to explain the
 argument, as defined by Meni Rosenfeld in this
-[pdf](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view). 
+[pdf](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view). If you are interested to learn more about bancor
+(e.g. the version 2 of the protocol), you can find more information in
+the [Bancor network blog](https://blog.bancor.network/).
 
 I've been thinking of using an "axiomatic" approach to explain the
 protocol. The idea will be to define what we want out of the system as a
 set of principles and then infer the equations that satisfy those
 principles. For illustration purposes, I will use a single reserve
-holding a single token. If you are interested to learn more about bancor
-(e.g. the version 2 of the protocol), you can find more information in
-the [Bancor network blog](https://blog.bancor.network/).
-
-Now, here is my attempt at formally defining the principles of the
-bonding curve. We wish that the reserve, the supply, and the bonding
-curve satisfy these properties:
+holding a single token. Now, here is my attempt at formally defining the
+principles of the bonding curve. We wish that the reserve, the supply,
+and the bonding curve satisfy these properties:
 * *Strictly Monotonic Bonding curve:* The bonding curve should be a
 [strictly monotonic](https://en.wikipedia.org/wiki/Monotonic_function)
 function of the total tokens in circulation (supply). The higher the
