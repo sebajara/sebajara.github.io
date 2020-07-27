@@ -11,7 +11,38 @@ toc_label: "Jump to:"
 toc_icon: "fast-forward"
 ---
 
-TODO. General intro. Motivation. CIC.
+During this pandemic, with a group of friends, we have been particularly
+interested in some novel developments on economic interventions to favor
+vulnerable communities. In particular the efforts of [Grassroots
+Economics](https://www.grassrootseconomics.org/) in Africa. They have
+developed a strategy to enable local communities to develop their own
+currencies. The program is sponsored by the [Red
+Cross](https://www.innovasjonnorge.no/no/subsites/hipnorway/innovation-projects2/red-cross-sparks-development-with-blockchain-community-currencies/.).
+The underlying hypothesis is that
+
+> Vulnerable communities do not lack demand, or labour, or ideas. They
+> lack a medium of exchange to deploy their underutilized resources and
+> an ability to generate financial capital themselves. Red Cross'
+> community inclusion currencies (CIC) project will allow people
+> affected by crises to effectively create their own local currencies to
+> bootstrap development.
+
+Given the looming upcoming crisis, sounds like an amazing idea. If you
+want to learn more about the
+[CIC](https://gitlab.com/grassrootseconomics/cic-docs/-/blob/master/README.md),
+you can look at [Will Ruddick's youtube
+channel](https://www.youtube.com/user/motomotocircus), and also this
+[page](https://www.notion.so/Community-Inclusion-Currencies-f3144a45387b4cf9b3578f8b7f67ecb8)
+organizes lots of useful related resources.
+
+Learning about the [CIC](https://gitlab.com/grassrootseconomics/cic-docs/-/blob/master/README.md) has open us to many interesting ideas about
+people are rethinking economic systems, many of them coming from the
+cryptocurrencies world. On the background, the
+[CIC](https://gitlab.com/grassrootseconomics/cic-docs/-/blob/master/README.md)
+framework relies on cryptocurrencies and a [protocol](https://about.bancor.network/protocol/) for setting prices
+developed by [Bancor](https://www.bancor.network/). In this post, I will
+try to explain the mathematical reasoning behind Bancor's protocol which
+is used to calculate the prices in CIC local currencies.
 
 ## Crypto-tokens and their price
 
@@ -19,8 +50,8 @@ What is a [crypto-token](https://www.investopedia.com/terms/c/crypto-token.asp)?
 In simple terms, they are a class of cryptocurrencies that represent
 something that can be used withing the blockchain. 
 
-We will be interested problem of how such token should be priced, which
-given the experience with [bitcoin
+We will be interested with the problem of how tokens should be priced,
+which given the experience with [bitcoin
 volatility](https://www.investopedia.com/articles/investing/052014/why-bitcoins-value-so-volatile.asp),
 seems like an important issue. Specially relevant if we mean to use
 tokens as way for people to create community currencies.
@@ -44,8 +75,8 @@ so (e.g. see the wiki entry of [assets](https://en.wikipedia.org/wiki/Asset)).
 Intuitively, prices are set based on how much people are *willing* to
 trade. So in practical terms, liquidity amounts to the following: for
 any amount of asset I buy for a given price, I can also sell it for
-approximately the same price. Somewhat similar to the conservation of
-energy in a reversible path if we were talking about physical
+approximately the same price. Somewhat similarly to having reversible
+paths if we were talking about the termodynamics of physical
 systems. How is liquidity *ensured* in regular markets?  Liquidity is
 facilitated by [Market
 Makers](https://en.wikipedia.org/wiki/Market_maker), which buy and sell
@@ -81,30 +112,28 @@ where tokens should operate under certain rules:
 * At any point in time, a token can be withdrawn (“burned”) from the
   active supply and a proportional part of the communal reserve can be
   taken with.
-Let's unpack a few terms. 
 
-In our context, a [smart
+Let's unpack a few terms. In our context, a [smart
 contract](https://en.wikipedia.org/wiki/Smart_contract) is code that can
 be attached to tokens such that they perform certain functions
 automatically. In our case, the bonding curve is the function that smart
 contracts implement to calculate the prices of tokens. The post by
 [yos.io](https://yos.io/2018/11/10/bonding-curves/) is very good at
-explaining the implementation side of the bonding curve.
-
-The second important term is the one of "reserve". In the context of a
-bonding curve, the reserve would be some way to store and update
-the total value of token supply, such that for every buy/sell
-transaction of tokens, the value is added/subtracted to/from the
-reserve. I was not aware, but the idea is quite old and commonly used,
-e.g. see [Fractional-reserve
+explaining the implementation side of the bonding curve. The second
+important term is the one of "reserve". In the context of a bonding
+curve, the reserve would be some way to store and update the total value
+of token supply, such that for every buy/sell transaction of tokens, the
+value is added/subtracted to/from the reserve. I was not aware, but the
+idea is quite old and commonly used, e.g. see [Fractional-reserve
 banking](https://en.wikipedia.org/wiki/Fractional-reserve_banking) on
 Wikipedia.
 
 ## Axiomatic approach to Bancor's protocol 
 
 So what function for the bonding curve should we pick? Bancor in their
-protocol version 1 (V1) propose a particular set of equations.  I will
-try to explain the argument, as defined by Meni Rosenfeld in this
+[protocol](https://about.bancor.network/protocol/) version 1 (V1)
+propose a particular set of equations.  I will try to explain the
+argument, as defined by Meni Rosenfeld in this
 [pdf](https://drive.google.com/file/d/0B3HPNP-GDn7aRkVaV3dkVl9NS2M/view). I've
 been thinking of using an "axiomatic" approach to explain the
 protocol. The idea will be to define what we want out of the system as a
@@ -133,9 +162,11 @@ supply, it should always hold 20%.
   should be also 0.
 
 Note that the first and second conditions can solve the liquidity
-problem. The third condition is particular to the fractional-reserve
-implementation, and the last one captures the intuition that the curve
-should start from 0. Now, let's see how to derive the bonding curve.
+problem, because they ensure that buying and selling tokens is
+reversible with respecto to how much we have to pay or are payed. The
+third condition is particular to the fractional-reserve implementation,
+and the last one captures the intuition that the curve should start
+from 0. Now, let's see how to derive the bonding curve.
 
 ### Derivation of the bonding curve
 
@@ -214,8 +245,9 @@ here](https://raw.githubusercontent.com/sebajara/sebajara.github.io/master/pytho
 to get an intuition for what the parameters mean. Note that changing the
 reserve fraction $$a$$ has a very strong effect on the curves. In
 particular, the smaller $$a$$ the less incentive there is for selling
-tokens and this property is what CIC uses to promote the local currency
-to remain within the community.
+tokens and this property is what
+[CIC](https://gitlab.com/grassrootseconomics/cic-docs/-/blob/master/README.md)
+uses to promote the local currency to remain within the community.
 
 {% include blog-aux/2020_07_26_bancor_v1_bonding_curve.html %}
 
@@ -224,15 +256,17 @@ to remain within the community.
 I find the very exciting the idea that conversion rates between
 currencies can be hardcoded formally, and that we can exploit some of
 their properties to assist communities less favored by the economic
-system's *status quo*, as the CIC is doing in Africa. I hope to have
-shown here how we can start from certain properties or axioms that we
-wish the system to have, and then derive the corresponding formulas, and
-understand a bit better what they mean. The result here depends heavily
-on the idea of a fractional-reserve, which for CIC acts as a way to
-preserve the value of the collateral relative to the total token supply,
-and allows using the parameter $$a$$ as a way to increase the value of
-the collateral initially (by a factor of $$1/a$$), and discourage cashing
-out the local community currency.
+system's *status quo*, as the
+[CIC](https://gitlab.com/grassrootseconomics/cic-docs/-/blob/master/README.md)
+is doing in Africa. I hope to have shown here how we can start from
+certain properties or axioms that we wish the system to have, and then
+derive the corresponding formulas, and understand a bit better what they
+mean. The result here depends heavily on the idea of a
+fractional-reserve, which for CIC acts as a way to preserve the value of
+the collateral relative to the total token supply, and allows using the
+parameter $$a$$ as a way to increase the value of the collateral
+initially (by a factor of $$1/a$$), and discourage cashing out the local
+community currency.
 
 In the future, would be interesting to explore different axioms for
 setting bonding curves. For example, I've been thinking that we could
