@@ -116,13 +116,13 @@ Bonding curves were first proposed by (Simon de la
 Rouviere)[https://blog.simondlr.com/] in what he coined "[curation
 markets](https://medium.com/@simondlr/introducing-curation-markets-trade-popularity-of-memes-information-with-code-70bf6fed9881)",
 where tokens should operate under certain rules:
-* A token can be minted at any time (continuous) according to a price
-  set by the smart contract.
-* This price gets more expensive as more tokens are in circulation.
-* The amount paid for the token is kept in a communal reserve.
-* At any point in time, a token can be withdrawn (“burned”) from the
-  active supply and a proportional part of the communal reserve can be
-  taken with.
+>* A token can be minted at any time (continuous) according to a price
+>  set by the smart contract.
+>* This price gets more expensive as more tokens are in circulation.
+>* The amount paid for the token is kept in a communal reserve.
+>* At any point in time, a token can be withdrawn (“burned”) from the
+>  active supply and a proportional part of the communal reserve can be
+>  taken with.
 
 Let's unpack a few terms. In our context, a [smart
 contract](https://en.wikipedia.org/wiki/Smart_contract) is code that can
@@ -173,7 +173,7 @@ supply, it should always hold 20%.
 * *Bonding curve starts from the origin*: the price for a supply of 0
   should be also 0.
 
-Note that the first and second conditions can solve the liquidity
+The first and second conditions can in principle solve the liquidity
 problem, because they ensure that buying and selling tokens is
 reversible with respecto to how much we have to pay or are payed. The
 third condition is particular to the fractional-reserve implementation,
