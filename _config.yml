@@ -120,6 +120,7 @@ author:
 include:
   - .htaccess
   - _pages
+  - _includes/blog-aux/
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -146,6 +147,7 @@ exclude:
   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
+  - python/
 keep_files:
   - .git
   - .svn
