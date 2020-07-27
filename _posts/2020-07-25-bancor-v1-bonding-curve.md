@@ -190,7 +190,7 @@ $$r(s) = f(ps) = aps = a p_0 s_0^{1-\frac{1}{a}} s^{\frac{1}{a}} $$
 
 Play with the parameter values on this figure to get a feeling for the
 bonding curve, specially the reserve fraction $$a$$.
-{% include 2020_07_26_bancor_v1_bonding_curve.html %}
+{% include blog-aux/2020_07_26_bancor_v1_bonding_curve.html %}
 
 ### Buying and selling tokens
 
