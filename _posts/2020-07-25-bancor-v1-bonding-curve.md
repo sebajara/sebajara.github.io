@@ -49,7 +49,7 @@ is used to calculate the prices in CIC local currencies.
 
 What is a [crypto-token](https://www.investopedia.com/terms/c/crypto-token.asp)?
 In simple terms, they are a class of cryptocurrencies that represent
-something that can be used withing the blockchain. 
+something that can be used within the blockchain. 
 
 We will be interested with the problem of how tokens should be priced,
 which given the experience with [bitcoin
