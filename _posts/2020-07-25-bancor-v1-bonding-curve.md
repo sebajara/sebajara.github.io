@@ -9,8 +9,6 @@ toc_label: "Jump to:"
 toc_icon: "fast-forward"
 ---
 
-NOTE: this a post in the making.
-
 TODO. General intro. Motivation. CIC.
 
 ## Crypto-tokens and their price
@@ -194,7 +192,7 @@ Play with the parameter values on this figure to get a feeling for the
 bonding curve, specially the reserve fraction $$a$$.
 {% include 2020_07_26_bancor_v1_bonding_curve.html %}
 
-### Buying or selling tokens
+### Buying and selling tokens
 
 Say we wish to change the supply from $$s_0$$ to $$s_0+\Delta s$$ by
 buying or selling tokens. How much we pay/get in the units of the
@@ -221,6 +219,24 @@ $$
 
 Then, using these two equations we can map reserve currency to amount of
 tokens for any given purchase or sell transaction.
+
+## Conclusions
+
+I hoped to show that bancor formulas are the only solution satisfying
+the propositions of the bonding curve and a fractional-reserve. More
+generally, I find the very exciting the idea where conversion rates
+between currencies can be hard coded formally, and that they are being
+used to assist communities that are less favored by the economic
+system's *status quo*. In parallel, it would be interesting to explore
+different axioms. For example, I've been thinking that we could create a
+token representing carbon emissions, or something else we wish to avoid,
+and trade using negative supply-reserve relations. In such case, is
+unclear whether a fractional-reserve may be best suited. Instead, we
+could ask the question of given the current climate situation, what are
+the best set of axioms that can get us to avoid worst-case
+scenarios. Other examples could be to encode different properties of
+tokens such as volatility into the bonding curves. I hope to explore
+some of these questions in future posts.
 
 <!--
 
