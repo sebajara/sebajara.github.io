@@ -1,6 +1,6 @@
 ---
 title: Bancor's protocol bonding curve (V1)
-date: 2020-07-27
+date: 2020-07-28
 tags: [Economics, Cryptocurrency, Token Bonding Curve, Fractional-reserve, Bancor, Mathematical modeling, Interactive]
 header:
   image: "/assets/images/bancor_bonding_curve_interactive_example.png"
@@ -111,8 +111,8 @@ you want to learn more about bonding-curves check out the blog posts by
 [relevant.community](https://blog.relevant.community/how-to-make-bonding-curves-for-continuous-token-models-3784653f8b17),
  and [coinmonks](https://medium.com/coinmonks/token-bonding-curves-explained-7a9332198e0e).
 
-Bonding curves were first proposed by (Simon de la
-Rouviere)[https://blog.simondlr.com/] in what he coined "[curation
+Bonding curves were first proposed by [Simon de la
+Rouviere](https://blog.simondlr.com/) in what he coined "[curation
 markets](https://medium.com/@simondlr/introducing-curation-markets-trade-popularity-of-memes-information-with-code-70bf6fed9881)",
 where tokens should operate under certain rules:
 
@@ -154,9 +154,11 @@ I've been thinking of using an "axiomatic" approach to explain the
 protocol. The idea will be to define what we want out of the system as a
 set of principles and then infer the equations that satisfy those
 principles. For illustration purposes, I will use a single reserve
-holding a single token. Now, here is my attempt at formally defining the
-principles of the bonding curve. We wish that the reserve, the supply,
-and the bonding curve satisfy these properties:
+holding a single token.
+
+Now, here is my attempt at formally defining the principles of the
+bonding curve. We wish that the reserve, the supply, and the bonding
+curve satisfy these properties:
 * *Strictly Monotonic Bonding curve:* The bonding curve should be a
 [strictly monotonic](https://en.wikipedia.org/wiki/Monotonic_function)
 function of the total tokens in circulation (supply). The higher the

@@ -4,8 +4,9 @@ Personal website for blog and portafolio. Originally generated using
 as template (See repo's README is great for information). With time I am
 adding a few minor edits, mostly on the style-sheet for appearance.
 
-## Editing resources I found useful
+## Resources I found useful
 
+* How to see your site locally? [github's explanation](https://docs.github.com/en/github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll). Before I was committing while testing! Note: don't install jekyll using apt-get, use bundler instead [see this](https://stackoverflow.com/questions/57105493/error-uninitialized-constant-ffiplatformcpu-on-starting-jekyll-server).
 * [MathJax quick reference](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
 
 ## TODO
