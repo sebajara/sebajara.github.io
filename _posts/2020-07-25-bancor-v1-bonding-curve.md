@@ -33,8 +33,11 @@ Given the looming upcoming crisis, sounds like an idea worth to
 understand and perhaps replicate. If you want to learn more about the
 [CIC](https://gitlab.com/grassrootseconomics/cic-docs/-/blob/master/README.md),
 you can look at [Will Ruddick](https://twitter.com/wor?lang=en)'s
-youtube [channel](https://www.youtube.com/user/motomotocircus), and also
-this
+youtube [channel](https://www.youtube.com/user/motomotocircus), e.g.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tSTzOXu4f6k" frameborder="0" allowfullscreen></iframe>
+
+Also this
 [page](https://www.notion.so/Community-Inclusion-Currencies-f3144a45387b4cf9b3578f8b7f67ecb8)
 organizes lots of useful related resources.
 
