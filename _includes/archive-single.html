@@ -34,6 +34,6 @@
       <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
     {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 300 }}</p>{% endif %}
-    {% if post.header %} <img src={{post.header.image}} alt=""> {% endif %}
+    {% if post.header %} <a href="{{ post.url | absolute_url }}" rel="permalink"><img src={{post.header.image}} alt={{ title }} ></a> {% endif %}
   </article>
 </div>
