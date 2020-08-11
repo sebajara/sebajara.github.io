@@ -11,16 +11,16 @@ toc_icon: "fast-forward"
 ---
 
 I would love to have databases related to cooking, like a recipe
-database. Unfortunately I have not been able to find a freely available
-large dataset. So I decide to scrap
+database, but I have not been able to find a freely available large
+dataset. So I decide to scrap
 [allrecipes.com](https://www.allrecipes.com/), given it has a very large
 number of recipes and appears to have a very active community. Their
 site includes detailed ingredients, description, and nutritional
 information, among other things.
 
-I found that their site is organized by
+I found that their site is organized as
 <code>https://www.allrecipes.com/recipe/\d+/</code>, where the last
-digits appear to function as some kind of ID. That is perfect to have a
+digits appear be some kind of ID. That is perfect to have a
 loop and automate parsing the recipes. Unfortunately, for some reason
 their recipe pages appear to come in two flavors: one like
 [ID=7000](https://www.allrecipes.com/recipe/7000/), and a second kind
@@ -29,13 +29,13 @@ them "fancy" and "non-fancy" respectively. Here are some screenshots so you
 can see the difference.
 
 
-__"Fancy"__
+__"Fancy recipe page"__
 
 
 ![fancy-id-7000](/assets/images/2020-08-06_fancy_page.png){:class="img-responsive"} 
 
 
-__"Non-fancy"__
+__"Non-fancy recipe page"__
 
 
 ![fancy-id-8000](/assets/images/2020-08-06_non-fancy_page.png){:class="img-responsive"}
@@ -52,24 +52,25 @@ I could be wrong.
 
 In general, I used <code>scrapy</code> to parse the pages
 html. Selectors make very easy to extract content using both
-<code>.css()</code> and <code>.xpath()</code> methods. If you "Inspect"
-the elements on the page, it is easy to what some unique combination of
-classes and ids that map to the content I want. The "View Page Source"
-on Firefox is also useful to double check.
+<code>.css()</code> and <code>.xpath()</code> methods. On your web
+broser, you can "Inspect" the elements on the target page, and using
+combination of classes and is always possible to find some query that
+extracts the desired content. Also, the "View Page Source" option is
+useful for double checking.
 
-One thing was special "non-fancy" pages. It turned out that the only way
-to obtain the detail nutrional information was by running a
-javascript. I used the strategy depicted in
+Something special about "non-fancy" pages, is that to obtain the detail
+nutrional information we must run a javascript. I could not find a way
+to do this within <code>scrapy</code> , so I used the strategy depicted
+in
 [towardsdatascience](https://towardsdatascience.com/data-science-skills-web-scraping-javascript-using-python-97a29738353f)
-using <code>selenium.webdriver</code> to access the output of the script
-from python. It works, but makes scraping quite slow.
+using <code>selenium.webdriver</code>. While tt works, it also makes the
+process way slower than parsing just the html.
 
-Here is the main code for parsing one recipe page. You can find the
+Here is the main code for scraping one recipe page. You can find the
 whole script
 [here](https://raw.githubusercontent.com/sebajara/sebajara.github.io/master/python/2020_08_06_allrecipes_scrap.py). You
-would need to adjust the variables at the top to decide what range of
-ids to parse, and the output folder for duming the json file. I suggest
-to use begin with a small range.
+would need to adjust the variables at the top of the script, to define
+what range of ids to scrap. The output will be dumped as a json file.
 
 ```python
 def parse_page(id, usewebdriver=False):
@@ -146,7 +147,7 @@ def parse_page(id, usewebdriver=False):
 
 ## Example outputs
 
-To give an idea, I will add here the outputs from parsing the two example
+To give you an idea, I add here the outputs from parsing the two example
 pages with screenshots on the top.
 
 {% highlight python %}
@@ -194,12 +195,6 @@ pages with screenshots on the top.
  'nutrition_TimeoutException': 0,
  'access_date': '05/08/2020'}
 {% endhighlight %}
-
-For the "non-fancy" pages I need to pass the
-<code>usewebdriver=True</code> flag to get the detailed nutritional
-information. Otherwise, it would simply parse the regular html of the
-page without opening the driver and running the detailed information
-script.
 
 {% highlight python %}
 >> parse_page(8000, usewebdriver=True)
@@ -253,18 +248,14 @@ script.
  'access_date': '06/08/2020'}
 {% endhighlight %}
 
+For the "non-fancy" pages I need to pass the
+<code>usewebdriver=True</code> flag to get the detailed nutritional
+information. Otherwise, it would simply parse the regular html of the
+page without opening the driver and running the detailed information
+script.
+
+<!---
 ## Few plots from 50K recipes
-
-So far I have 49690 unique recipes from the site. I am guessing this
-represents somewhere between 25-50% of all unique recipes.
-
-To give you an idea, this is how the main top level categories are
-represented. Many of the low index IDs happen to be desserts. Personally
-I am not a big fan of sweets, so I am hoping this may change as I parse
-more pages.
-
-![](/assets/images/2020-08-06_RECIPE_category1_hist.png){:class="img-responsive"} 
-
 I first thought to use this dataset to predict recipe's start
 score. Perhaps the score is correlated to the calories per serving? In
 the next plot you can see there is no obvious correlation. Furthermore,
@@ -275,14 +266,26 @@ of the recipes is very high. Probably scores are only good to filter
 very bad quality recipes, but don't have much meaning beyond that.
 
 ![](/assets/images/2020-08-06_RECIPE_starscore_vs_calories.png){:class="img-responsive"} 
+--->
 
 ## What's next?
 
+So far I have 49690 unique recipes from the site. I am guessing this
+represents somewhere between 25-50% of all unique recipes. To give you a
+flavor, this is how the main top-level categories are represented.
+
+![](/assets/images/2020-08-06_RECIPE_category1_hist.png){:class="img-responsive"} 
+
+So far, desserts are the most popular category. I am hoping this may
+change as I scrap more pages, as I am not a big fan of sweets.
+
 Some things would be fun to do:
-* Recommendation of recipes given a list of ingredients and additional
-  constraints. I have something on the making using word2vec. Hope to
+* Recommending recipes given a list of ingredients and additional
+  constraints. I have something on the making using word2vec. I hope to
   make a post about it soon.
-* Reverse engineer ingredients nutritional information. This is a more
-  challenging, due to having to parse the beginning of the ingredient's
-  string and convert it into something quantitative. After that would be
-  just a very big linear regression. Would be fun to see if it works.
+* Reverse engineering the ingredients nutritional information. This is
+  more challenging due to parsing. E.g. convert the beginning of the
+  ingredient's string it into quantitative units. Once parsing is
+  solved, it would become a linear regression problem to extract the
+  coefficients with the nutritional information of each
+  ingredient. Would be fun to see if it works.
